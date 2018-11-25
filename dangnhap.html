@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>4Tshop - Đăng nhập</title>
+<link rel="stylesheet" href="css/styledangnhap.css" />
+<link rel="shortcut icon" type="image/png" href="img/favicon.icon" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+	body{
+		background-image: url('img/Witcher-3-415-2060x1288 - Copy.jpg');
+		background-position: center;
+		background-attachment:fixed;
+	}
+</style>
+</head>
+
+<body>
+		<div style="width: 80%; margin: 0 auto">
+			
+		<div id="header">
+			<a href="index.html"><img src="img/icon.png" width="100" style="margin-left: 20px; margin-top: 10px; float: left" /></a>
+			<input type="search" id="search" placeholder=" Tìm kiếm ..." size="58" style="margin: 10px; float: left; margin-top: 120px" />
+			<button style="margin-top: 120px"><i class="fa fa-search"></i></button>
+			<a href="dangki.html" style="float: right; color: white; margin: 5px; margin-top: 136px">Đăng kí</a>
+			<a href="dangnhap.html" style="float: right; color: white; margin: 5px; margin-top: 136px">Đăng nhập</a>
+			<a href="giohang.html" class="fa fa-cart-plus" style="float: right; color: white; margin: 4px; margin-top: 138px"></a>
+		</div>
+		
+		<div id="menu" style="clear: both">
+			<ul>
+				<li><a href="index.html">Trang chủ</a></li>
+				<li><a href="">Nổi bật</a></li>
+				<li><a href="https://www.gamespot.com/news/">Tin tức</a></li>
+				<li><a href="">Thông tin</a></li>
+				<li><a href="">Hỗ trợ</a></li>
+			</ul>
+		</div>
+			
+	<div id="body">
+	<form style="color: #fff" method="post" action="thanhcong.html">
+		<div align="center"><h3>ĐĂNG NHẬP</h3></div>
+		<hr>
+        <div style="margin-top: 40px">
+        	<div class="cap">Tài khoản:</div>
+            <div>&emsp;<input  type="text" name="tkdn" size="40%" maxlength="20" required /></div>
+        </div>
+        <div style="margin-top: 7px">
+        	<div class="cap">Mật khẩu: </div>
+            <div>&emsp;<input type="password" name="mkdn" size="40%" maxlength="20" min="6" required /></div>
+        </div>
+		
+		<div id="forgotpass">
+			<a href="dangki.html" style="color: white">Quên mật khẩu?</a>
+		</div>
+		<div align="center" style="margin-top: 20px"><input type="submit" name="dangky" value="Đăng nhập" style="background-color: black; color: white" /></div>
+		<div align="center" style="margin-top: 15px">Bạn là thành viên mới chưa có tài khoản?<a href="dangki.html" style="color: white"> Đăng kí ngay.</a></div>
+    </form>
+	</div>
+		
+	<div id="footer"><br />&copy Sinh viên trường Đại học Sài Gòn 2018</div>	
+</div>
+
+</body>
+</html>

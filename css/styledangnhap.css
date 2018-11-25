@@ -1,0 +1,30 @@
+@import "footer.css";
+@import "header.css";
+#body{
+	width:600px;
+	height: 300px;
+	background-color: #231E1E;
+	position:relative;
+	margin:0 auto;
+	border:solid;
+	padding-top: 10px;
+	border-color: gray
+}
+
+form input{
+	background-color: #393939;
+	color:#FFF;
+}
+#forgotpass{
+	margin-left: 207px;
+	margin-top: 10px;
+}
+.cap{
+	float:left;
+	width:190px;
+	margin-top: 2px;
+	text-align:right;
+	}
+
+
+

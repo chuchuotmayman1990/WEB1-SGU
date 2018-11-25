@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>4Tshop - Đăng kí</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="shortcut icon" type="image/png" href="img/favicon.icon" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+<style>
+body{
+	background-image: url('img/Witcher-3-415-2060x1288 - Copy.jpg');
+	background-position: center;
+	background-attachment:fixed;	
+}
+</style>
+<script>
+function kiemtra()
+{
+	var username=document.dangky.tkdk;
+	var password=document.dangky.mkdk;
+	var password_confirm=document.dangky.password_confirm;
+	if(username.value=="")
+	{	
+		alert("Xin vui lòng nhập vào tên tài khoản.");
+		username.focus();
+		return false;
+	}
+
+	else if(password.value=="")
+		{	
+			alert("Xin vui lòng nhập vào mật khẩu.");
+			password.focus();
+			return false;
+		}
+	
+	else if(password.length<6)
+		{  
+			alert("Độ dài mật khẩu phải có ít nhất 6 kí tự");
+			password.focus();
+			return false;
+		}
+
+	else if(password.value != password_confirm.value)
+		{
+			alert("Mật khẩu không khớp nhau, xin vui lòng nhập lại");
+			password_confirm.focus();
+			return false;
+		}
+	return true;
+}
+
+//	action="../Untitled-2.html"
+</script>	
+</head>
+
+<body>
+		<div style="width: 80%; margin: 0 auto">
+			
+		<div id="header">
+			<a href="index.html"><img src="img/icon.png" width="100" style="margin-left: 20px; margin-top: 10px; float: left" /></a>
+			<input type="search" id="search" placeholder=" Tìm kiếm ..." size="58" style="margin: 10px; float: left; margin-top: 120px" />
+			<button style="margin-top: 120px"><i class="fa fa-search"></i></button>
+			<a href="dangki.html" style="float: right; color: white; margin: 5px; margin-top: 136px">Đăng kí</a>
+			<a href="dangnhap.html" style="float: right; color: white; margin: 5px; margin-top: 136px">Đăng nhập</a>
+			<a href="giohang.html" class="fa fa-cart-plus" style="float: right; color: white; margin: 4px; margin-top: 138px"></a>
+		</div>
+		
+		<div id="menu" style="clear: both">
+			<ul>
+				<li><a href="index.html">Trang chủ</a></li>
+				<li><a href="">Nổi bật</a></li>
+				<li><a href="https://www.gamespot.com/news/">Tin tức</a></li>
+				<li><a href="">Thông tin</a></li>
+				<li><a href="">Hỗ trợ</a></li>
+			</ul>
+		</div>
+       
+		
+	<div id="wrapper">
+		<form name="dangky" style=" color: #fff" action="thanhcong.html" method="post" onSubmit="return kiemtra();">
+			<div align="center" style="padding-top:10px"><strong>ĐĂNG KÍ THÀNH VIÊN</strong></div>
+			<hr>
+			<div style="margin: 2px">
+				<div style="width: 50%; float: left" align="right">Tài khoản:</div>
+				<div><input type="text" name="tkdk" id="tkdk" height="20px"><a style="color: red">*</a></div>
+			</div>
+			<div style="margin: 2px">
+				<div style="width: 50%; float: left" align="right">Mật khẩu:</div>
+				<div><input type="password" name="mkdk" id="mkdk"><a style="color: red">*</a></div>
+			</div>
+			<div style="width: 50%; float: right" align="left">(Tối thiểu 6 kí tự)</div><br>
+			<div style="margin: 2px">
+				<div style="width: 50%; float: left" align="right">Nhập lại mật khẩu:</div>
+				<div><input type="password" name="password_confirm" id="password_confirm"><a style="color: red">*</a>
+			    </div>
+			</div>
+			<hr>
+			<div>&nbsp;Bảo mật tài khoản:</div>
+			<div style="margin: 2px">
+				<div style="width: 50%; float: left" align="right">Email:</div>
+				<div><input type="email" name="email"></div>
+			</div>
+			<div style="margin: 2px">
+				<div style="width: 50%; float: left" align="right">Câu hỏi bảo mật:</div>
+				<div><select name="questions">
+						<option value="0" selected>[Chọn câu hỏi]
+						<option value="1">Số điện thoại đầu tiên của bạn là gì?
+						<option value="2">Con vật bạn yêu thích nhất là gì?
+						<option value="3">Sở thích của bạn là gì?
+						<option value="4">Tên chó/mèo nhà bạn là gì?
+					</select>
+				</div>
+			</div>
+			<div style="margin: 2px">
+				<div style="width: 50%; float: left" align="right">Câu trả lời:</div>
+			  <div><input type="text" name="answer">
+			  </div>
+			</div>
+			<hr>
+			<div>&nbsp;Thông tin cá nhân:</div>
+			<div style="margin: 2px">
+				<div style="width: 50%; float: left" align="right">Họ và chữ lót:</div>
+				<div><input type="text" name="firstname" size="40"></div>
+			</div>
+			<div style="margin: 2px">
+				<div style="width: 50%; float: left" align="right">Tên:</div>
+				<div><input type="text" name="lastname" size="40"></div>
+			</div>
+			<div style="margin: 2px">
+				<div style="width: 50%; float: left" align="right">Ngày sinh:</div>
+				<div><select name="birthday">
+						<option value="0" selected>[Ngày]
+						<script>
+						for (i=1; i<= 31; i++)
+							{
+								document.write("<option value="+i+">"+i+"</option>");
+							}
+						</script>
+				</select>
+				<select name="birthmonth">
+						<option value="0" selected>[Tháng]
+						<script>
+						for (i=1; i<= 12; i++)
+							{
+								document.write("<option value="+i+">"+i+"</option>");
+							}
+						</script>
+				</select>
+				<select name="birthyear">
+                	<option value="0" selected>[Năm]
+        			<script>
+						var d = new Date();
+						for (i=1930; i<= d.getFullYear(); i++)
+							{
+								document.write("<option value="+i+">"+i+"</option>");
+							}
+					</script>
+                </select>
+				</div>
+			</div>
+			<div style="margin: 2px">
+				<div style="width: 50%; float: left" align="right">Giới tính:</div>
+				<div><input type="radio" name="gender" value="Nam">Nam
+					 <input type="radio" name="gender" value="Nữ">Nữ</div>
+			</div>
+			<div style="width: 50%; float: left" align="right">Nghề nghiệp liên quan:</div>
+				<div><select name="job">
+						<option value="0" selected>[Chọn ngành nghề]
+						<option value="gv">Giáo viên</option>
+						<option value="kt">Kế toán</option>
+						<option value="kd">Kinh doanh</option>
+						<option value="ks">Kĩ sư</option>
+					    <option value="kts">Kiến trúc sư </option>
+					    <option value="dev">Dev</option>
+					    <option value="ttc">Thợ thủ công</option>
+					    <option value="dl">Du lịch</option>
+						<option value="bdv">Biên dịch viên</option>
+				</select>
+			</div>
+			<hr>
+			<div>&nbsp;Sở thích tùy chọn:</div>
+			<div style="margin: 2px">
+				<div style="width: 50%; float: left" align="right"><input type="checkbox" name="music">Âm nhạc</div>
+			  	<div><input type="checkbox" name="traveling">Du lịch</div>
+				<div style="width: 50%; float: left" align="right"><input type="checkbox" name="research">Nghiên cứu</div>
+			  	<div><input type="checkbox" name="business">Kinh doanh</div>
+			</div>
+            <hr>
+			<div style="margin: 2px; padding-top:4px">
+				<div style="width: 50%; float: left" align="right">
+					<input type="submit" name="submit" value="Đồng ý" ></div>
+			  	<div><input type="reset" name="reset" value="Nhập lại"></div>
+			</div>
+            <p id="hienthi"></p>
+		</form>	
+	</div>
+		
+		
+	<div id="footer"><br />&copy Sinh viên trường Đại học Sài Gòn 2018</div>
+</div>		
+</body>
+</html>

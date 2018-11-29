@@ -68,8 +68,8 @@ function layurl()
 }
 
 window.onload = function(){			
-	layurl();
 	createmenu();
 	xuat_allsp();
+	layurl();
 	
 }

@@ -6,14 +6,9 @@
 <link rel="shortcut icon" type="image/png" href="img/favicon.icon" />
 <link rel="stylesheet" href="css/design.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
-<style>
-	body{
-		background-image: url('img/Witcher-3-415-2060x1288 - Copy.jpg');
-		background-attachment:fixed;
-	}
-</style>
 <script src="js/createmenu.js"></script>
 <script src="js/productmenu.js"></script>
+<script src="js/carousel.js"></script>
 </head>
 	
 <body>
@@ -28,24 +23,57 @@
 			<a href="giohang.html" class="fa fa-cart-plus" style="float: right; color: white; margin: 4px; margin-top: 138px"></a>
 		</div>
 		
-		<div id="menu" style="clear: both">
+		<nav id="menu" style="clear: both">
 			<ul>
 				<li><a href="index.html">Trang chủ</a></li>
 				<li><a href="">Nổi bật</a></li>
 				<li><a href="https://www.gamespot.com/news/">Tin tức</a></li>
 				<li><a href="index.html?contact">Thông tin</a></li>
-				<li><a href="">Hỗ trợ</a></li>
+				<li><a href="index.html?support">Hỗ trợ</a></li>
 
 			</ul>
-		</div>
+		</nav>
  
-		<div style="position: relative; height: 1050px">
+		<article style="width: 80%; margin: 0 auto">
+			<div id="slideShow">
+				<div class="images fade" style="display: block;">
+					<a href="index.html?detail=25"><img src="img/content/jc4/jc4-new.jpg" style="height: 350px; width: 849.267px; border-radius: 10px;" alt="Chọn"></a>
+				</div>
+				<div class="images fade" style="display: none;">
+					<a href="index.html?detail=23"><img src="img/content/bf5/bf5-new.jpg" style="height: 350px; width: 849.267px; border-radius: 10px;" alt="Chọn"></a>
+				</div>
+				<div class="images fade" style="display: none;">
+					<a href="index.html?detail=24"><img src="img/content/ds3/ds3-new.jpg" style="height: 350px; width: 849.267px; border-radius: 10px;" alt="Chọn"></a>
+				</div>
+				<div class="images fade" style="display: none;">
+					<a href="index.html?detail=22"><img src="img/content/hm2/hm2-new.jpg" style="height: 350px; width: 849.267px; border-radius: 10px;" alt="Chọn"></a>
+				</div>
+				<div class="images fade" style="display: none;">
+					<a href="index.html?detail=5"><img src="img/content/aco/aco-new.jpg" style="height: 350px; width: 849.267px; border-radius: 10px;" alt="Chọn"></a>
+				</div>
+				<div class="images fade" style="display: none;">
+					<a href=""><img src="img/content/sottr/sottr-new.jpg" style="height: 350px; width: 849.267px; border-radius: 10px;" alt="Chọn"></a>
+				</div>
+				<a class="prev" onclick="plusSlides(-1)">❮</a>
+  				<a class="next" onclick="plusSlides(1)">❯</a>
+			</div>
+		</article>
+		<div style="text-align:center;margin-top: 5px;margin-bottom: 3px;">		  	
+  			<span class="dot" onclick="currentSlide(1)"></span> 
+			<span class="dot" onclick="currentSlide(2)"></span> 
+			<span class="dot" onclick="currentSlide(3)"></span>
+			<span class="dot" onclick="currentSlide(4)"></span>  
+			<span class="dot" onclick="currentSlide(5)"></span> 
+			<span class="dot" onclick="currentSlide(6)"></span> 
+		</div>
+
+		<div style="position: relative; height: 1100px">
 			<div id="menulist">
 				<p align="center"><strong>THỂ LOẠI</strong></p>
 				<hr>
 				<p id="createmenu"></p>
 			</div>
-			
+		
 			<div id="productlist">
 				<form id="sanpham">
                 </form>

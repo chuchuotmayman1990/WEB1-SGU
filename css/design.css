@@ -108,6 +108,7 @@ article
 article #slideShow
 {
 	position: relative;
+	height: 350px;
 }
 article #slideShow .images
 {
@@ -129,6 +130,23 @@ article #slideShow .images:hover
 	-moz-filter: blur(1px);
 	cursor: pointer;
 }
+/*==Fade==*/
+.fade {
+  -webkit-animation-name: carouselfade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: carouselfade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+/*==End fade==*/
 .prev, .next 
 {
 	position: absolute;
@@ -167,6 +185,7 @@ article #slideShow .images:hover
 {
 	background-color: #444444;
 }
+
 /*==End Slide Show==*/
 article .selection
 {

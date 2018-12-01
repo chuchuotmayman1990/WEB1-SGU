@@ -57,4 +57,16 @@
 #menu li:hover .submenu{
 	display: block;
 }
-
+#search
+{
+	margin: 10px; 
+	float: left; 
+	margin-top: 120px;
+	border-radius: 10px;
+}
+#searchbt
+{
+	margin-top: 120px;
+	height: 22px;
+	border-radius: 10px;
+}

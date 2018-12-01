@@ -1,4 +1,4 @@
-window.setInterval(function(){plusSlides(1);}, 5000);
+window.setInterval(function(){plusSlides(1);}, 8500);
 
 var slideIndex = 1;
 	showSlides(slideIndex);

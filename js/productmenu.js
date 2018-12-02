@@ -67,7 +67,7 @@ function Thongtin(hoten,mssv,congviec)
 	this.congviec=congviec;
 }
 var tt = new Array();
-tt[0] = new Thongtin("Ngô Chí Trung","3117410277","");
-tt[1] = new Thongtin("Hà Thiện Tuấn","3117410285","");
-tt[2] = new Thongtin("Trần Thanh Toàn","3117410265","");
-tt[3] = new Thongtin("Vũ Minh Thế","3117410245","");
+tt[0] = new Thongtin("Ngô Chí Trung","3117410277","Javascript(hiển thị SP, chi tiết SP, trang thông tin, tìm kiếm), Trang admin");
+tt[1] = new Thongtin("Hà Thiện Tuấn","3117410285","Javascript(danh mục, kiểm tra ĐN-ĐK, localStorage), Giao diện hoàn thiện(index-ĐN-ĐK), Slideshow, Thông tin SP");
+tt[2] = new Thongtin("Vũ Minh Thế","3117410245","Giao diện sơ khai(index-ĐN-ĐK), Banner, Logo");
+tt[3] = new Thongtin("Trần Thanh Toàn","3117410265","...");

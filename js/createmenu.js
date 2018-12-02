@@ -40,7 +40,7 @@ function xuat_contact()
 	var s = '<table border="1" width=100% style="text-align:center"><tr><td width="30%">Họ và tên</td><td width="20%">Mã số sinh viên</td><td>Công việc</td></tr>';
 	for(var i=0; i<tt.length; i++)
 	{
-		s += '<tr><td>'+tt[i].hoten+'</td><td>'+tt[i].mssv+'</td><td>'+tt[i].congviec+'</td></tr>';
+		s += '<tr><td>'+tt[i].hoten+'</td><td>'+tt[i].mssv+'</td><td style="color:#27CF2D;">'+tt[i].congviec+'</td></tr>';
 	}
 	s += '</table>';
 	document.getElementById("sanpham").innerHTML=s;
@@ -78,9 +78,10 @@ function Logined()
 		<div class="dropdown">Chào <span>`+username+`</span>
 			<div class="dropdown-content">
 				<p><a href="giohang.html" style="color:white">Xem giỏ hàng <i class="fa fa-cart-plus"></i></a></p>
-				<p><a href="javascript:void(0);" onClick="signout()" style="color:white">Đăng xuất <i class="fa fa-sign-out"></i></a></p>
-	
-			</div>
+				<p><a href="javascript:void(0);" onClick="signout()" style="color:white">Đăng xuất <i class="fa fa-sign-out"></i></a></p>`
+		if (username == "admin") 
+		{ s += `<p><a href="admin.html" style="color:white">Quản trị <i class="fa fa-address-book-o"></i></a></p>`;}
+		   `</div>
 		</div>
 		</a>`;
 	document.getElementById("member").innerHTML=s;

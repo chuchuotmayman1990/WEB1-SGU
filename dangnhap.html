@@ -32,34 +32,76 @@
 				<li><a href="index.html">Trang chủ</a></li>
 				<li><a href="">Nổi bật</a></li>
 				<li><a href="https://www.gamespot.com/news/">Tin tức</a></li>
-				<li><a href="">Thông tin</a></li>
-				<li><a href="">Hỗ trợ</a></li>
+				<li><a href="index.html?contact">Thông tin</a></li>
+				<li><a href="index.html?support">Hỗ trợ</a></li>
 			</ul>
 		</div>
 			
 	<div id="body">
-	<form style="color: #fff" method="post" action="thanhcong.html">
+	<form name="dangnhap" style="color: #fff" method="post">
 		<div align="center"><h3>ĐĂNG NHẬP</h3></div>
 		<hr>
         <div style="margin-top: 40px">
         	<div class="cap">Tài khoản:</div>
-            <div>&emsp;<input  type="text" name="tkdn" size="40%" maxlength="20" required /></div>
+            <div>&emsp;<input  type="text" name="tkdn" id="tkdn" size="40%" /></div>
         </div>
         <div style="margin-top: 7px">
         	<div class="cap">Mật khẩu: </div>
-            <div>&emsp;<input type="password" name="mkdn" size="40%" maxlength="20" min="6" required /></div>
+            <div>&emsp;<input type="password" name="mkdn" id="mkdn" size="40%" maxlength="20" min="6" /></div>
         </div>
 		
 		<div id="forgotpass">
 			<a href="dangki.html" style="color: white">Quên mật khẩu?</a>
 		</div>
-		<div align="center" style="margin-top: 20px"><input type="submit" name="dangky" value="Đăng nhập" style="background-color: black; color: white" /></div>
+		<div align="center" style="margin-top: 20px"><input type="submit" name="dangky" onclick="return kiemtraDN()" value="Đăng nhập" style="background-color: black; color: white" /></div>
 		<div align="center" style="margin-top: 15px">Bạn là thành viên mới chưa có tài khoản?<a href="dangki.html" style="color: white"> Đăng kí ngay.</a></div>
     </form>
 	</div>
 		
 	<div id="footer"><br />&copy Sinh viên trường Đại học Sài Gòn 2018</div>	
 </div>
-
 </body>
+
+<script>
+function kiemtraDN() 
+{
+	var username=document.dangnhap.tkdn;
+	var password=document.dangnhap.mkdn;
+	if(username.value=="")
+	{	
+		alert("Xin vui lòng nhập vào tên tài khoản.");
+		username.focus();
+		return false;
+	}
+
+	else if(password.value=="")
+	{	
+		alert("Xin vui lòng nhập vào mật khẩu.");
+		password.focus();
+		return false;
+		}
+	var userID = 0;
+
+	while (true) 
+	{
+		if (window.localStorage.getItem('user00' + userID) == tkdn.value || window.localStorage.getItem('user00' + userID)==null)
+			break;
+		userID++;
+	}
+
+	if (window.localStorage.getItem('user00' + userID)==null) {
+		alert ("Tài khoản không tồn tại");
+		return false;
+	}
+
+	if (window.localStorage.getItem ('user00'+userID+'password') != mkdn.value) {
+		alert ("Sai tên tài khoản hoặc mật khẩu");
+		return false;
+	}
+
+//	window.localStorage.setItem ('signedinID', userID);
+	window.location = 'thanhcong.html';
+	return false;
+}
+</script>
 </html>

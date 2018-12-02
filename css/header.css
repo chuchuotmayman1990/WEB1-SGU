@@ -6,6 +6,7 @@
 		height: 160px;
 		margin: 0 auto;
 		border: hidden;
+		position: relative;
 }
 #header input{
 	position: relative;
@@ -69,4 +70,31 @@
 	margin-top: 120px;
 	height: 22px;
 	border-radius: 10px;
+}
+#member
+{
+	position: absolute; 
+	top: 0px; 
+	right: 0px;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #222222;
+    min-width: 130px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    margin-top: 160px;
+    margin-right: 20px;
+    z-index: 1;
+    border:solid;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }

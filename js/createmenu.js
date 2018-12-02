@@ -57,6 +57,41 @@ function xuat_chitietsp(vitri)
 	document.getElementById("sanpham").innerHTML=s;
 }
 
+function notLogin()
+{
+	var s="";
+	s += `
+		<a href="dangki.html" style="float: right; color: white; margin: 5px; margin-top: 136px">Đăng kí</a>
+		<a href="dangnhap.html" style="float: right; color: white; margin: 5px; margin-top: 136px">Đăng nhập</a>
+		<a href="giohang.html" class="fa fa-cart-plus" style="float: right; color: white; margin: 4px; margin-top: 137px"></a>
+		`;
+	document.getElementById("member").innerHTML=s;
+}
+
+function Logined()
+{
+	var userID = window.localStorage.getItem ('signinID');
+	var username = window.localStorage.getItem('user00' + userID);
+	var s="";
+	s += `
+		<a style="float: right; color: white; margin: 5px; margin-top: 139px;" href="javascript:void(0);">
+		<div class="dropdown">Chào <span>`+username+`</span>
+			<div class="dropdown-content">
+				<p><a href="giohang.html" style="color:white">Xem giỏ hàng <i class="fa fa-cart-plus"></i></a></p>
+				<p><a href="javascript:void(0);" onClick="signout()" style="color:white">Đăng xuất <i class="fa fa-sign-out"></i></a></p>
+	
+			</div>
+		</div>
+		</a>`;
+	document.getElementById("member").innerHTML=s;
+}
+
+function signout()
+{
+	window.localStorage.removeItem('signinID');
+	window.location="index.html";
+}
+
 function layurl()
 {
 	var s = window.location.href;
@@ -92,6 +127,10 @@ function layurl()
 }
 
 window.onload = function(){			
+	if (window.localStorage.getItem ('signinID')==null)
+		notLogin();
+	else
+		Logined();
 	createmenu();
 	layurl();
 }

@@ -22,9 +22,11 @@
 			<a href="index.html"><img src="img/icon.png" width="100" style="margin-left: 20px; margin-top: 10px; float: left" /></a>
 			<input type="search" id="search" placeholder=" Tìm kiếm ..." size="53" style="margin: 10px; float: left; margin-top: 120px" />
 			<button id="searchbt"><i class="fa fa-search"></i></button>
+			<div id="member">
 			<a href="dangki.html" style="float: right; color: white; margin: 5px; margin-top: 136px">Đăng kí</a>
 			<a href="dangnhap.html" style="float: right; color: white; margin: 5px; margin-top: 136px">Đăng nhập</a>
 			<a href="giohang.html" class="fa fa-cart-plus" style="float: right; color: white; margin: 4px; margin-top: 138px"></a>
+			</div>
 		</div>
 		
 		<div id="menu" style="clear: both">
@@ -99,7 +101,7 @@ function kiemtraDN()
 		return false;
 	}
 
-//	window.localStorage.setItem ('signedinID', userID);
+	window.localStorage.setItem ('signinID', userID);
 	window.location = 'thanhcong.html';
 	return false;
 }

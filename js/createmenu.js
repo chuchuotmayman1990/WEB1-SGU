@@ -48,7 +48,7 @@ function xuat_contact()
 
 function xuat_support()
 {
-
+	var s="";
 }
 
 function xuat_chitietsp(vitri)

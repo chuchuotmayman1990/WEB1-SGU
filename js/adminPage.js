@@ -63,10 +63,18 @@ function xuat_DSSP(item)
 			+'<td style="width:25%">'+item[i].tengame+'</td>'
 			+'<td style="width:20%">'+item[i].gia+'</td>'
 			+'<td style="width:20%">'+item[i].mamenu+'</td>'
-			+'<td style="width:10%"><input type="button" value="sửa"><input type="button" value="xóa"></td></tr>';
+			+'<td style="width:10%"><input type="button" value="sửa"><input type="button" onclick="xoasp()" value="xóa"></td></tr>';
 		}
 		s+='</table>';
 		document.getElementById("thongtin").innerHTML=s;
+	}
+}
+
+function xoasp()
+{
+	if(confirm("Bạn có chắc muốn xóa sản phẩm này?")==true)
+	{
+		alert("Đã xóa sản phẩm này.")
 	}
 }
 

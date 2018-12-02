@@ -80,7 +80,7 @@ function Logined()
 				<p><a href="giohang.html" style="color:white">Xem giỏ hàng <i class="fa fa-cart-plus"></i></a></p>
 				<p><a href="javascript:void(0);" onClick="signout()" style="color:white">Đăng xuất <i class="fa fa-sign-out"></i></a></p>`
 		if (username == "admin") 
-		{ s += `<p><a href="admin.html" style="color:white">Quản trị <i class="fa fa-address-book-o"></i></a></p>`;}
+		{ s += `<p><a href="quantri.html" style="color:white">Quản trị <i class="fa fa-address-book-o"></i></a></p>`;}
 		   `</div>
 		</div>
 		</a>`;

@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<title>4T Shop</title>
+<link rel="shortcut icon" type="image/png" href="img/favicon.icon" />
+<link rel="stylesheet" href="css/design.css" />
+<link rel="stylesheet" href="css/giohang.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+<script src="js/createmenu.js"></script>
+<script src="js/productmenu.js"></script>
+<script src="js/carousel.js"></script>
+<script src="js/giohang.js"></script>
+</head>
+	
+<body>
+	<div style="width: 80%; margin: 0 auto">
+			
+		<div id="header">
+			<a href="index.html"><img src="img/icon.png" width="100" style="margin-left: 20px; margin-top: 10px; float: left" /></a>
+			<input type="search" id="search" placeholder=" Tìm kiếm ..." size="53" />
+			<button id="searchbt"><i class="fa fa-search"></i></button>
+			<a href="dangki.html" style="float: right; color: white; margin: 5px; margin-top: 136px">Đăng kí</a>
+			<a href="dangnhap.html" style="float: right; color: white; margin: 5px; margin-top: 136px">Đăng nhập</a>
+			<a href="giohang.html" class="fa fa-cart-plus" style="float: right; color: white; margin: 4px; margin-top: 138px"></a>
+		</div>
+		
+		<nav id="menu" style="clear: both">
+			<ul>
+				<li><a href="index.html">Trang chủ</a></li>
+				<li><a href="">Nổi bật</a></li>
+				<li><a href="https://www.gamespot.com/news/">Tin tức</a></li>
+				<li><a href="index.html?contact">Thông tin</a></li>
+				<li><a href="index.html?support">Hỗ trợ</a></li>
+
+			</ul>
+		</nav>
+ 	
+
+	
+
+		<div style="position: relative; height: 1100px">
+	
+
+			<div id="contentcart">
+				<div id="sp_da_them">
+                    <div id="xoa_all_sp">
+                        <form>
+                            <button id="clear_all" type="button" onclick="xoa_all()">XÓA TẤT CẢ SẢN PHẨM</button>
+                        </form>
+                    </div>
+            	</div>
+
+				<div id="tong_tien">
+                    <p style="text-align:center;">Thông tin đơn hàng:</p>
+                    <hr>
+                    <p>Số lượng:<span>0</span></p>
+                    <hr>
+                    <p>Tạm tính:<span>0đ</span></p>
+                    <hr>
+                    <p>Thành tiền:<span>0đ</span></p>
+                    <hr>
+                    <button type="button" class="xac_nhan_cart" onclick="xacnhanmuahang()">XÁC NHẬN MUA HÀNG</button>
+                    <div id="sotrang"></div>
+            	</div>
+        	</div>
+		</div>
+		
+		<div id="footer">
+          	<div id="support">
+                    <p style="color: red">HỖ TRỢ KHÁCH HÀNG</p>
+                    <p>
+                    Hotline đặt hàng: 1900-9999<br>
+                    (Miễn phí, 7h30-22h00)<br>
+                    Hỗ trợ: 1900-8888<br>
+                    (Miễn phí, 7h30-22h00)<br>
+                	Copyright &copy 2018 All Right Reserved</p>
+            </div>
+            <div id="about-me">
+                    <p style="color: red">ĐỊA CHỈ LIÊN HỆ</p>
+                    <p>
+                    Trụ sở chính: 273, đường An Dương Vương, Phường 3, Quận 5, TP. Hồ Chí Minh<br>
+                    Chi nhánh 1: 105 Bà Huyện Thanh Quan, Phường 7, Quận 3, TP. Hồ Chí Minh<br>	  
+                    SGU ~ Khoa Công nghệ thông tin ~ SGU
+                    </p>
+            </div>
+            <div id="mang-xa-hoi">
+                    <p style="color: red">KẾT NỐI VỚI CHÚNG TÔI</p>
+                    <div style="float: left; margin-left: 80px; margin-right: 10px;"><a href="https://www.facebook.com/minhthe.usename" target="_blank"><img src="img/facebook.png" width="40px" height="40px"></a></div>
+                    <div style="float: left; margin-right: 10px;"><a href="https://id.zalo.me/account/login?continue=https://oa.zalo.me/manage/dashboard "target="_blank"><img src="img/zalo.png" width="40px" height="40px"></a></div>
+                    <div style="float: left;"><a href="https://www.youtube.com/?gl=VN" target="_blank"><img src="img/youtube.png" width="40px" height="40px"></a></div>
+            </div>
+                <div id="thanh-toan">
+                    <p style="color: red;">PHƯƠNG THỨC THANH TOÁN</p>
+                    <div>
+                        <div style="float: left; margin-left: 50px; margin-right: 15px;"><img src="img/visa.png"></div>
+						<div style="float: left; margin-right: 15px;"><img src="img/jcb.png"></div>
+                        <div style="float: left;"><img src="img/money.png"></div>
+               
+                </div>
+            </div>
+    	</div>
+		
+	</div>
+</body>
+</html>

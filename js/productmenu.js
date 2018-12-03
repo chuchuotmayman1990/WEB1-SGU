@@ -41,9 +41,9 @@ sp[12] = new sanpham("12","CT ID ST","Oxygen Not Included","220.000","./img/cont
 sp[13] = new sanpham("13","GL","Thief Simulator","188.000","./img/content/ts/ts-0.jpg","");
 sp[14] = new sanpham("14","GL","Hand Simulator","30.000","./img/content/hs/hs-0.jpg","");
 sp[15] = new sanpham("15","HD NV TGM","Yakuza 0","342.000","./img/content/ykz0/ykz0-0.jpg","");
-sp[16] = new sanpham("16","NV PL TGM","Fallout 4: Game of the Year Edition","480.000","./img/content/fo4/fo4-0.jpg","");
+sp[16] = new sanpham("16","NV PL TGM FPS","Fallout 4: Game of the Year Edition","480.000","./img/content/fo4/fo4-0.jpg","");
 sp[17] = new sanpham("17","NV PL TGM","The Elder Scrolls V: Skyrim Special Edition","900.000","./img/content/tesv/tesv-0.jpg","");
-sp[18] = new sanpham("18","NV PL TGM KD","Dying Light Enhanced Edition","549.000","./img/content/dl/dl-0.jpg","");
+sp[18] = new sanpham("18","NV PL TGM KD FPS","Dying Light Enhanced Edition","549.000","./img/content/dl/dl-0.jpg","");
 sp[19] = new sanpham("19","NV KD","RESIDENT EVIL 7 biohazard / BIOHAZARD 7 resident evil","398.000","./img/content/re7/re7-0.jpg","");
 sp[20] = new sanpham("20","TT","NBA 2K19","984.000","./img/content/nba19/nba19-0.jpg","");
 sp[21] = new sanpham("21","NV PL TGM","Assassin's Creed® Odyssey","990.000","./img/content/aco/aco-0.jpg","");
@@ -51,6 +51,20 @@ sp[22] = new sanpham("22","HD NV","HITMAN™ 2","990.000","./img/content/hm2/hm2
 sp[23] = new sanpham("23","HD NV FPS","Battlefield V","1.350.000","./img/content/bf5/bf5-0.jpg","");
 sp[24] = new sanpham("24","PL NV TGM","Darksiders III","620.000","./img/content/ds3/ds3-0.jpg","");
 sp[25] = new sanpham("25","PL NV TGM","Just Cause 4","1.291.500","./img/content/jc4/jc4-0.jpg","");
+sp[26] = new sanpham("26","ST CT KD","Dead by Daylight","188.000","./img/content/dbd/dbd-0.jpg","");
+sp[27] = new sanpham("27","ID KD","Visage","220.000","./img/content/vsg/vsg-0.jpg","");
+sp[28] = new sanpham("28","ST FPS KD","Left 4 Dead 2","120.000","./img/content/l4d2/l4d2-0.jpg","");
+sp[29] = new sanpham("29","ST PL VT","Subnautica","220.000","./img/content/sn/sn-0.jpg","");
+sp[30] = new sanpham("30","ST PL VT","ASTRONEER","280.000","./img/content/ast/ast-0.jpg","");
+sp[31] = new sanpham("31","VT GL","Jurassic World Evolution","1.252.000","./img/content/jwe/jwe-0.jpg","");
+sp[32] = new sanpham("32","FPS VT","Portal 2","120.000","./img/content/pt2/pt2-0.jpg","");
+sp[33] = new sanpham("33","PL NV TGM","FINAL FANTASY XV WINDOWS EDITION","1.135.000","./img/content/ffxv/ffxv-0.jpg","");
+sp[34] = new sanpham("34","PL VT","X4: Foundations","440.000","./img/content/x4f/x4f-0.jpg","");
+sp[35] = new sanpham("35","CT","Artifact","470.000","./img/content/atf/atf-0.jpg","");
+
+
+
+
 function View(ma,ten)
 {
 	this.ma=ma;
@@ -71,3 +85,4 @@ tt[0] = new Thongtin("Ngô Chí Trung","3117410277","Javascript(hiển thị SP,
 tt[1] = new Thongtin("Hà Thiện Tuấn","3117410285","Javascript(danh mục, kiểm tra ĐN-ĐK, localStorage), Giao diện hoàn thiện(index-ĐN-ĐK), Slideshow, Thông tin SP");
 tt[2] = new Thongtin("Vũ Minh Thế","3117410245","Giao diện sơ khai(index-ĐN-ĐK), Banner, Logo, Footer");
 tt[3] = new Thongtin("Trần Thanh Toàn","3117410265","Footer");
+

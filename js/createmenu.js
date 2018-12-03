@@ -3,7 +3,7 @@ function createmenu(){
 	for(i=0;i<m.length;i++)
 	{
 		var a='<a href="index.html?'+m[i].mamenu+'&'+1+'" style="color: white"><div align="center">';
-		s= s + a + m[i].ten + '</div></a><hr>';	
+		s+= a + m[i].ten + '</div></a><hr>';	
 	}
 	//alert(s);
 	document.getElementById("createmenu").innerHTML=s;
@@ -35,6 +35,7 @@ function xuat_sp(temp,t0,t1)
 	document.getElementById("sotrang").innerHTML='<div>Trang:'+lienket+'</div>';
 }
 
+
 function xuat_contact()
 {
 	var s = '<table border="1" width=100% style="text-align:center"><tr><td width="30%">Họ và tên</td><td width="20%">Mã số sinh viên</td><td>Công việc</td></tr>';
@@ -46,16 +47,50 @@ function xuat_contact()
 	document.getElementById("sanpham").innerHTML=s;
 }
 
-function xuat_support()
+function xuat_feedback()
 {
-	var s="";
+	var s=`
+			<h1 align="center">Hộp thư phản hồi / góp ý</h1>
+			<div>
+			<form id="feedback_f">
+			<div>
+				<a style="margin-left:10%; margin-top:20px;">Email:</a></br>
+				<input type="email" id="feedback_email" style="margin-left:10%; margin-top:10px; color:white; background-color:black;" size=40px;/></br>
+				<a style="margin-left:10%; margin-top:10px;">Nội dung:</a></br>
+				<textarea style="margin-left:10%; margin-top:10px; width:80%; height:450px; color:white; background-color:black;" placeholder="Nhập nội dung vào đây..."></textarea>
+			</div>
+			<div align="center" style="margin-top: 15px;"><button style="background-color:black; color:white; margin-right: 10px;">Gửi</button><input type="reset" value="Nhập lại" style="background-color:black; color:white;"></div>
+			</form>
+			</div>
+			`;
+	document.getElementById("sanpham").innerHTML=s;
 }
+
+
+/*				function validateEmail(email) {
+    				var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    				return re.test(String(email).toLowerCase());
+				}
+				function email_check()
+				{
+				var e = document.feedback_f.feedback_email;
+
+				if(e.value=="")
+					alert("Vui lòng nhập vào email.");
+				else if (!validateEmail(e.value))
+					alert("Email không hợp lệ, vui lòng kiểm tra lại.");
+				else 
+					alert("Đã gửi email xác thực, vui lòng kiểm tra hộp thư của bạn.");
+				return false;
+			}
+*/
 
 function xuat_chitietsp(vitri)
 {
 	var s = '<div><img src="'+sp[vitri].hinh+'"/></div><br><div>'+sp[vitri].noidung+'</div>';
 	document.getElementById("sanpham").innerHTML=s;
 }
+
 
 function notLogin()
 {
@@ -96,16 +131,16 @@ function signout()
 function layurl()
 {
 	var s = window.location.href;
-	var text = s.split("?");
+	var text = s.split("?");	
 	var t = text[1];
 	t = t.split('&');
 	if(s.indexOf('contact') != -1)
 	{
 		xuat_contact();
 	}
-	else if(s.indexOf('support') != -1)
+	else if(s.indexOf('feedback') != -1)
 	{
-		xuat_support();
+		xuat_feedback();
 	}
 	else if(s.indexOf('detail') != -1)
 	{

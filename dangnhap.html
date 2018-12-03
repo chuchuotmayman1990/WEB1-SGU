@@ -51,18 +51,78 @@
         </div>
 		
 		<div id="forgotpass">
-			<a href="dangki.html" style="color: white">Quên mật khẩu?</a>
+			<a href="javascript:void(0)" onclick="forgot_pass()" style="color: white">Quên mật khẩu?</a>
+			<div id="receive_pass" style="margin-top: 10px"></div>
 		</div>
 		<div align="center" style="margin-top: 20px"><input type="submit" name="dangky" onclick="return kiemtraDN()" value="Đăng nhập" style="background-color: black; color: white" /></div>
 		<div align="center" style="margin-top: 15px">Bạn là thành viên mới chưa có tài khoản?<a href="dangki.html" style="color: white"> Đăng kí ngay.</a></div>
     </form>
 	</div>
 		
-	<div id="footer"><br />&copy Sinh viên trường Đại học Sài Gòn 2018</div>	
+	<div id="footer">
+          	<div id="support">
+                    <p style="color: red">HỖ TRỢ KHÁCH HÀNG</p>
+                    <p>
+                    Hotline đặt hàng: 1900-9999<br>
+                    (Miễn phí, 7h30-22h00)<br>
+                    Hỗ trợ: 1900-8888<br>
+                    (Miễn phí, 7h30-22h00)<br>
+                	Copyright &copy 2018 All Right Reserved</p>
+            </div>
+            <div id="about-me">
+                    <p style="color: red">THÔNG TIN</p>
+                    <p>Trần Thanh Toàn<br>
+                        Vũ Minh Thế<br>
+						Hà Thiện Tuấn<br>
+						Ngô Chí Trung<br>
+                        Đại học Sài Gòn<br>
+                        Khoa Công nghệ thông tin
+                    </p>
+            </div>
+            <div id="mang-xa-hoi">
+                    <p style="color: red">KẾT NỐI VỚI CHÚNG TÔI</p>
+                    <div style="float: left; margin-left: 80px; margin-right: 10px;"><a href="https://www.facebook.com/minhthe.usename" target="_blank"><img src="img/facebook.png" width="40px" height="40px"></a></div>
+                    <div style="float: left; margin-right: 10px;"><a href="https://id.zalo.me/account/login?continue=https://oa.zalo.me/manage/dashboard "target="_blank"><img src="img/zalo.png" width="40px" height="40px"></a></div>
+                    <div style="float: left;"><a href="https://www.youtube.com/?gl=VN" target="_blank"><img src="img/youtube.png" width="40px" height="40px"></a></div>
+            </div>
+                <div id="thanh-toan">
+                    <p style="color: red;">PHƯƠNG THỨC THANH TOÁN</p>
+                    <div>
+                        <div style="float: left; margin-left: 50px; margin-right: 15px;"><img src="img/visa.png"></div>
+						<div style="float: left; margin-right: 15px;"><img src="img/jcb.png"></div>
+                        <div style="float: left;"><img src="img/money.png"></div>
+               
+                </div>
+            </div>
+    	</div>	
 </div>
 </body>
 
 <script>
+function forgot_pass()
+{
+	var s="";
+	s=`<input type="email" id="input_email" placeholder="Nhập vào email..." size="34"/>
+		<button style="background-color:black; color:white" onclick="return email_check()">Gửi</button>	
+	`
+	document.getElementById("receive_pass").innerHTML=s;
+}
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+function email_check()
+{
+	var e = document.dangnhap.input_email;
+
+	if(e.value=="")
+		alert("Vui lòng nhập vào email.");
+	else if (!validateEmail(e.value))
+		alert("Email không hợp lệ, vui lòng kiểm tra lại.");
+	else 
+		alert("Đã gửi email xác thực, vui lòng kiểm tra hộp thư của bạn.");
+	return false;
+}
 function kiemtraDN() 
 {
 	var username=document.dangnhap.tkdn;
@@ -103,5 +163,6 @@ function kiemtraDN()
 	window.location = 'thanhcong.html';
 	return false;
 }
+
 </script>
 </html>

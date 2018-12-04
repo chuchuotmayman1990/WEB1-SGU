@@ -2,39 +2,73 @@ function createmenu(){
 	var s="";
 	for(i=0;i<m.length;i++)
 	{
-		var a='<a href="index.html?'+m[i].mamenu+'&'+1+'" style="color: white"><div align="center">';
+		var a='<a href="index.html?'+m[i].mamenu+'&page=1'+'" style="color: white"><div align="center">';
 		s+= a + m[i].ten + '</div></a><hr>';	
 	}
 	//alert(s);
 	document.getElementById("createmenu").innerHTML=s;
 }
 
-function xuat_sp(temp,t0,t1)
+function xuat_sp(temp,x,y)
 {
-	var vitri = (t1-1)*9;
+	var vitri = (y-1)*9;
 	for(var i=0;i<m.length;i++)
 	{
-		if(m[i].mamenu == t0)
+		if(m[i].mamenu == x)
 		{
 			var s='<div style="font-size: 22px;margin-top: 14px;margin-bottom: 9px;margin-left: 14px;">' + m[i].ten + '</div>';
-		}	
+			break;
+		}
+		else
+		{
+			var s='<div style="font-size: 22px;margin-top: 14px;margin-bottom: 9px;margin-left: 14px;">Tất cả sản phẩm: ' + x + '</div>';
+		}
 	}
 	var lienket="";
 	var dem =0;
-	for(var i=vitri;i<temp.length;i++){
-		s += '<div class="product"><a href="index.html?detail=' + temp[i].masp + '" style="text-decoration:none"><img src="' + temp[i].hinh + '"alt="' + temp[i].tengame +'" id="hinhsp" style=" margin-top:25px"/><div><figcaption style="color: white; ">' + temp[i].tengame + '</figcaption></div><div style="  position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%);"></a><span style="color:#27CF2D;"><b>'+temp[i].gia+' VNĐ</b></span><br><input type="button" onClick="cong()" value="Mua ngay" class="buy"></div></div>';
-		dem++;
-		if(dem==9) break;
+	if(temp.length==0)
+	{
+		s += '<h1 style="text-align: center">Không có sản phẩm phù hợp.</h1>';
+		document.getElementById("sanpham").innerHTML=s;
+	}
+	else{
+		for(var i=vitri;i<temp.length;i++){
+			s += '<div class="product"><a href="index.html?detail=' + temp[i].masp + '" style="text-decoration:none"><img src="' + temp[i].hinh + '"alt="' + temp[i].tengame +'" id="hinhsp" style=" margin-top:25px"/><div><figcaption style="color: white; ">' + temp[i].tengame + '</figcaption></div><div style="  position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%);"></a><span style="color:#27CF2D;"><b>'+temp[i].gia+' VNĐ</b></span><br><input type="button" onClick="cong()" value="Mua ngay" class="buy"></div></div>';
+			dem++;
+			if(dem==9) break;
+		}
 	}
 	var sotrang = Math.ceil(temp.length/9);
 	for(i=1;i<=sotrang;i++)
 	{
-		lienket += '<a href="index.html?'+t0+'&'+i+'" class="number">'+i+'</a>';
+		lienket += '<a href="index.html?'+x+'&page='+i+'" class="number">'+i+'</a>';
 	}
 	document.getElementById("sanpham").innerHTML=s;
 	document.getElementById("sotrang").innerHTML='<div>Trang:'+lienket+'</div>';
 }
 
+function xuat_allsp()
+{
+	var s = `<div><a href="index.html?all&page=1" style="color:white; text-decoration:none"><h2 style="margin-left: 14px">Xem tất cả sản phẩm&emsp;>></h2></a></div>`;
+	var dem =0;
+	for(var i=0;i<sp.length;i++){
+		s += '<div class="product"><a href="index.html?detail=' + sp[i].masp + '" style="text-decoration:none"><img src="' + sp[i].hinh + '"alt="' + sp[i].tengame +'" id="hinhsp" style=" margin-top:25px"/><div><figcaption style="color: white; ">' + sp[i].tengame + '</figcaption></div><div style="  position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%);"></a><span style="color:#27CF2D;"><b>'+sp[i].gia+' VNĐ</b></span><br><input type="button" onClick="cong()" value="Mua ngay" class="buy"></div></div>';
+		dem++;
+		if(dem==9) break;
+	}
+	document.getElementById("sanpham").innerHTML=s;
+}
+
+function cong() 
+{
+	if (window.localStorage.getItem ('signinID')==null)
+		alert("Bạn cần phải đăng nhập để mua hàng!");
+	else
+	{
+		
+	}
+	return false;
+}
 
 function xuat_contact()
 {
@@ -85,10 +119,20 @@ function xuat_feedback()
 			}
 */
 
+function xuat_steamwallet()
+{
+	var s="";
+	for(var i=0;i<card.length;i++)
+	{
+		s += '<div class="product"><a href="index.html?wallet' + card[i].masp + '" style="text-decoration:none"><img src="' + card[i].hinh + '"alt="' + card[i].ten +'" id="hinhsp" style=" margin-top:25px"/><div><figcaption style="color: white; ">' + card[i].ten + '</figcaption></div><div style="  position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%);"></a><span style="color:#27CF2D;"><b>'+card[i].gia+' VNĐ</b></span><br><input type="button" onClick="cong()" value="Mua ngay" class="buy"></div></div>';
+	}
+	document.getElementById("sanpham").innerHTML=s;
+}
+
 function xuat_chitietsp(vitri)
 {
-	var s = '<div><img src="'+sp[vitri].hinh+'"/></div><br><div>'+sp[vitri].noidung+'</div>';
-	document.getElementById("sanpham").innerHTML=s;
+	var s = '<div style="width:80%; margin-left:10%; margin-top:40px;"><img src="'+sp[vitri].hinh+'" width="100%"/></div><br><div>'+sp[vitri].noidung+'</div>';
+	document.getElementById("sanpham").innerHTML=s;	
 }
 
 
@@ -128,37 +172,155 @@ function signout()
 	window.location="index.html";
 }
 
+
+function NormalSearch()
+{
+	var s = '<input type="search" id="search" placeholder=" Tìm kiếm ..." size="53" />'
+			+'<button id="searchbt" onClick="timkiem()"><i class="fa fa-search"></i></button><br>'
+			+'<input id="ChagneSearch" type="button" value="Tìm kiếm nâng cao" onClick="AdvancedSearch()" style="margin-left:-270px; margin-top: 10px; border-radius: 5px;">';
+	document.getElementById("searchdiv").innerHTML = s;
+}
+
+function AdvancedSearch()
+{
+	var s ='<input type="search" id="searchadv" placeholder=" Tìm kiếm nâng cao..." size="53" style="border-radius: 10px; margin-left: 10px;" />'
+		+'<button id="searchbt" onclick="timkiemnangcao()" style="margin-left: 8px;"><i class="fa fa-search"></i></button>'
+		+'<p style="margin-left: 130px; margin-top: 5px">Thể loại</p>'
+		+'<select id="Kind" style="width: 100px; margin-left: 10px; margin-top: -12px; background-color:black; color: white;">'
+			+'<option value="all">Tất cả</option>';
+			for (var i=0; i<m.length; i++) {
+				s += '<option value="'+ m[i].mamenu +'">' + m[i].ten + '</option>';
+			}
+	s += '</select>'
+		+'<p style="margin: 0.25em 0; margin-left: 130px">Giá</p>'
+		+'<input id="From" type="text" style="width: 70px; margin-left: 10px;" placeholder="Từ"/> ~ <input id="To" type="text" style="width: 70px" placeholder="Đến"/>'
+		+'<input id="ChagneSearch" type="button" value="Tìm kiếm thường" onclick="NormalSearch()" style="margin-left: 14px; border-radius: 5px" />';
+	document.getElementById("searchdiv").innerHTML = s;
+}
+
+function timkiem()
+{
+	var a = document.getElementById("search").value;
+	var b = a.replace(/ /g,'-');
+	location.href='index.html?search='+b+'&page=1';
+}
+
+function timkiemnangcao()
+{
+	var a = document.getElementById("searchadv").value;
+	var b = document.getElementById("Kind").value;
+	var c = document.getElementById("From").value;
+	var d = document.getElementById("To").value;
+	var e = a.replace(/ /g,'-');
+	location.href='index.html?advsearch='+e+'&'+b+'&'+c+'&'+d+'&page=1';
+}
+
+
 function layurl()
 {
 	var s = window.location.href;
 	var text = s.split("?");	
-	var t = text[1];
-	t = t.split('&');
+	var t = text[1].split('&');
+	var d = text[1].split('=');
 	if(s.indexOf('contact') != -1)
 	{
 		xuat_contact();
+	}
+	else if(s.indexOf('wallet') != -1)
+	{	
+		xuat_steamwallet();
 	}
 	else if(s.indexOf('feedback') != -1)
 	{
 		xuat_feedback();
 	}
 	else if(s.indexOf('detail') != -1)
-	{
-		var d = text[1].split('=');
+	{	
 		xuat_chitietsp(d[1]);
 	}
-	else{
+	else if(d[0]=='search')
+	{
+		t[0] = t[0].replace(/-/g,' ');
+		var a = t[0].split('=');
+		var b = a[1].toLowerCase();
+		var item = new Array();
 		var sl = 0;
-		var temp = new Array();
 		for(var i=0;i<sp.length;i++)
 		{
-			var tl = (sp[i].mamenu).indexOf(t[0]);
-			if( tl != -1) {
-				temp[sl] = sp[i];
+			var s = (sp[i].tengame).toLowerCase();
+			if(s.indexOf(b) != -1)
+			{
+				item[sl] = sp[i];
 				sl++;
 			}
 		}
-		xuat_sp(temp,t[0],t[1]);
+		for(var i=0;i<card.length;i++)
+		{
+			var x = (card[i].ten).toLowerCase();
+			if(x.indexOf(b) != -1)
+			{
+				item[sl]=card[i];
+				sl++;
+			}
+		}
+		xuat_sp(item,t[0],d[2]);
+	}
+	else if(d[0]=='advsearch')
+	{
+		t[0] = t[0].replace(/-/g,' ');
+		if (t[2]==''||t[2] < 0) {t[2]= 0;}
+		if (t[3]=='') {	t[3] = 9999999;}
+		else if (t[3] < 0) t[3] = 0;
+		var a = t[0].split('=');
+		var b = a[1].toLowerCase();
+		var item = new Array();
+		var sl = 0;
+		for(var i=0;i<sp.length;i++)
+		{
+			if(t[1]=='all')
+			{
+				var g = (sp[i].gia).replace(/\./g,'');
+				g = Number(g);
+				var s = (sp[i].tengame).toLowerCase();
+				if( g>=t[2] && g<=t[3] && s.indexOf(b)!=-1)
+				{
+					item[sl] = sp[i];
+					sl++;
+				}
+			}
+			else
+			{
+				var g = (sp[i].gia).replace(/\./g,'');
+				g = Number(g);
+				var s = (sp[i].tengame).toLowerCase();
+				if( (sp[i].mamenu).indexOf(t[1])!=-1 && g>=t[2] && g<=t[3] && s.indexOf(b)!=-1)
+				{
+					item[sl] = sp[i];
+					sl++;
+				}
+			}
+		}
+		var c = t[0]+'&'+t[1]+'&'+t[2]+'&'+t[3];
+		xuat_sp(item,c,d[2]);
+	}
+	else{
+		if(t[0]=='all')
+		{
+			xuat_sp(sp,t[0],d[1]);
+		}
+		else{
+			var sl = 0;
+			var temp = new Array();
+			for(var i=0;i<sp.length;i++)
+			{
+				var tl = (sp[i].mamenu).indexOf(t[0]);
+				if( tl != -1) {
+					temp[sl] = sp[i];
+					sl++;
+				}
+			}
+			xuat_sp(temp,t[0],d[1]);
+		}
 	}
 }
 
@@ -167,6 +329,8 @@ window.onload = function(){
 		notLogin();
 	else
 		Logined();
+	NormalSearch();
+	xuat_allsp();
 	createmenu();
 	layurl();
 }

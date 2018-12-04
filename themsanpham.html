@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<script src="js/productmenu.js"></script>
+</head>
+
+<body>
+<form onSubmit="return check();">
+  <table width="800px;" border="1">
+    <tbody>
+		<tr>
+        	<td colspan="2" style="font-size: 40px; text-align: center"><strong>Thêm sản phẩm</strong></td>
+      	</tr>
+      	<tr>
+			<td style="width: 200px;">Mã sản phẩm:</td>
+			<td style="width: 600px;"><input type="text" name="addid"></td>
+		</tr>
+		<tr>
+			<td>Tên sản phẩm:</td>
+			<td><input type="text" name="addname"></td>
+		</tr>
+		<tr>
+			<td>Hình ảnh:</td>
+			<td>
+			</td>
+		</tr>
+		<tr>
+			<td>Thể loại:</td>
+			<td>
+				<script>
+					var d = 0;
+					for(var i=0;i< m.length;i++)
+					{
+						d++;
+						document.write('<div style="float:left; width:140px;"><input type="checkbox" name="theloai" value="'+m[i].mamenu+'">'+m[i].ten+'</div>');
+						if(d==4)
+						{
+							document.write("<br>");
+							d=0;
+						}
+					}
+				</script>
+			</td>
+		</tr>
+		<tr>
+			<td>Giá:</td>
+			<td><input type="number" name="addprice"> (VNĐ)</td>
+		</tr>
+		<tr>
+			<td>Thông tin sản phẩm:</td>
+			<td><textarea rows="4" cols="60"></textarea></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="Thêm sản phẩm"></td>
+			<td><button onClick="window.close()">Hủy</button></td>
+		</tr>
+    </tbody>
+  </table>
+</form>
+	<table>
+		<tbody>
+			<tr><th cosplan="2" style="text-align: center; font-size: 40px;"></th></tr>
+			
+		</tbody>
+	</table>
+</body>
+</html>

@@ -19,7 +19,7 @@ function DSSP()
 		a += '<option value="' + m[i].mamenu + '">'+ m[i].ten +'</option>';
 	}
 	s += a + '</select><input type="button" value="Thêm sản phẩm" id="addsp"></div><br>';
-	document.getElementById("adchoice").innerHTML=s;
+	document.getElementById("theloai").innerHTML=s;
 }
 
 function Item(obj)
@@ -50,19 +50,21 @@ function xuat_DSSP(item)
 	if(item.length==0) document.getElementById("thongtin").innerHTML='<h1>Không có sản phẩm nào.</h1>';
 	else{
 		s += '<table border="1" style="border-collapse: collapse; width: 100%; text-align: center;"><tr>'
-			+'<td style="width:5%;height:50px;">STT</td>'
-			+'<td style="width:20%">Ảnh</td>'
-			+'<td style="width:25%">Tên Game</td>'
-			+'<td style="width:20%">Giá(VNĐ)</td>'
-			+'<td style="width:20%">Thể loại</td></tr>';
+			+'<td style="width:3%;height:50px;">MASP</td>'
+			+'<td style="width:15%">Ảnh</td>'
+			+'<td style="width:15%">Tên Game</td>'
+			+'<td style="width:10%">Thể loại</td>'
+			+'<td style="width:10%">Giá(VNĐ)</td>'
+			+'<td style="width:37%">Nội dung</td></tr>';
 		for(var i=0;i<item.length;i++)
 		{
 			s += '<tr>'
-			+'<td style="width:5%">'+i+'</td>'
-			+'<td style="width:20%"><img src="'+item[i].hinh+'" width="100%" height="100px"/></td>'
-			+'<td style="width:25%">'+item[i].tengame+'</td>'
-			+'<td style="width:20%">'+item[i].gia+'</td>'
-			+'<td style="width:20%">'+item[i].mamenu+'</td>'
+			+'<td style="width:3%">'+i+'</td>'
+			+'<td style="width:15%"><img src="'+item[i].hinh+'" width="100%" height="100px"/></td>'
+			+'<td style="width:15%">'+item[i].tengame+'</td>'
+			+'<td style="width:10%">'+item[i].mamenu+'</td>'
+			+'<td style="width:10%">'+item[i].gia+'</td>'
+			+'<td style="width:37%">'+item[i].noidung+'</td>'
 			+'<td style="width:10%"><input type="button" value="sửa"><input type="button" onclick="xoasp()" value="xóa"></td></tr>';
 		}
 		s+='</table>';

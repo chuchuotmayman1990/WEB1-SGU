@@ -5,18 +5,29 @@
 <title>4TShop - ADMIN</title>
 <link href="img/favicon.icon" rel="shortcut icon">
 <link href="css/design.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
 <script src="js/productmenu.js"></script>
 <script src="js/adminPage.js"></script>
+
 </head>
 
 <body>
-<div style="width: 80%; margin: 0 auto">		
+<div style="width: 90%; margin: 0 auto">		
 	<div id="header">
 		<a href="index.html"><img src="img/icon.png" width="100" style="margin-left: 20px; margin-top: 10px; float: left" /></a>
+		<a href="javascript:void(0);" onClick="signout()" style="float: right; color: white; margin: 5px; margin-top: 136px">Đăng xuất <i class="fa fa-sign-out"></i></a>
+		<script>
+			function signout()
+			{
+				window.localStorage.removeItem('signinID');
+				window.location="index.html";
+			}
+		</script>
 	</div>
 	<div id="hiad">Welcome ADMIN</div>
 	<div id="adaction">
 		<div id="adchoice"></div>
+		<div id="theloai"></div>
 		<div id="thongtin"></div>
 		<div id="sotrang"></div>
 	</div>

@@ -21,7 +21,7 @@ function xuat_sp(temp,x,y)
 		}
 		else
 		{
-			var s='<div style="font-size: 22px;margin-top: 14px;margin-bottom: 9px;margin-left: 14px;">Tất cả sản phẩm: ' + x + '</div>';
+			var s='<div style="font-size: 22px;margin-top: 14px;margin-bottom: 9px;margin-left: 14px;">Hiển thị sản phẩm theo: ' + x + '</div>';
 		}
 	}
 	var lienket="";
@@ -49,7 +49,7 @@ function xuat_sp(temp,x,y)
 
 function xuat_allsp()
 {
-	var s = `<div><a href="index.html?all&page=1" style="color:white; text-decoration:none"><h2 style="margin-left: 14px">Xem tất cả sản phẩm&emsp;>></h2></a></div>`;
+	var s = `<div><a href="index.html?all&page=1" style="color:white; text-decoration:none"><h2 style='margin-left: 14px'>Xem tất cả sản phẩm&emsp;>></h2></a></div>`;
 	var dem =0;
 	for(var i=0;i<sp.length;i++){
 		s += '<div class="product"><a href="index.html?detail=' + sp[i].masp + '" style="text-decoration:none"><img src="' + sp[i].hinh + '"alt="' + sp[i].tengame +'" id="hinhsp" style=" margin-top:25px"/><div><figcaption style="color: white; ">' + sp[i].tengame + '</figcaption></div><div style="  position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%);"></a><span style="color:#27CF2D;"><b>'+sp[i].gia+' VNĐ</b></span><br><input type="button" onClick="cong()" value="Mua ngay" class="buy"></div></div>';
@@ -93,31 +93,31 @@ function xuat_feedback()
 				<a style="margin-left:10%; margin-top:10px;">Nội dung:</a></br>
 				<textarea style="margin-left:10%; margin-top:10px; width:80%; height:450px; color:white; background-color:black;" placeholder="Nhập nội dung vào đây..."></textarea>
 			</div>
-			<div align="center" style="margin-top: 15px;"><button style="background-color:black; color:white; margin-right: 10px;">Gửi</button><input type="reset" value="Nhập lại" style="background-color:black; color:white;"></div>
+			<div align="center" style="margin-top: 15px;"><button style="background-color:black; color:white; margin-right: 10px;" onclick="return email_check()">Gửi</button><input type="reset" value="Nhập lại" style="background-color:black; color:white;"></div>
 			</form>
 			</div>
 			`;
 	document.getElementById("sanpham").innerHTML=s;
 }
 
+function validateEmail(email) 
+{
+   	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+   	return re.test(String(email).toLowerCase());
+}
 
-/*				function validateEmail(email) {
-    				var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    				return re.test(String(email).toLowerCase());
-				}
-				function email_check()
-				{
-				var e = document.feedback_f.feedback_email;
+function email_check()
+{
+	var e = document.getElementById("feedback_email").value;
+		if(e=="")
+			alert("Vui lòng nhập vào email.");
+		else if (!validateEmail(e))
+			alert("Email không hợp lệ, vui lòng nhập lại")
+		else 
+			alert("Đã gửi phản hồi, chúng tôi sẽ hồi âm cho bạn trong thời gian sớm nhất.");
+		return false;
+}
 
-				if(e.value=="")
-					alert("Vui lòng nhập vào email.");
-				else if (!validateEmail(e.value))
-					alert("Email không hợp lệ, vui lòng kiểm tra lại.");
-				else 
-					alert("Đã gửi email xác thực, vui lòng kiểm tra hộp thư của bạn.");
-				return false;
-			}
-*/
 
 function xuat_steamwallet()
 {
@@ -131,8 +131,8 @@ function xuat_steamwallet()
 
 function xuat_chitietsp(vitri)
 {
-	var s = '<div style="width:80%; margin-left:10%; margin-top:40px;"><img src="'+sp[vitri].hinh+'" width="100%"/></div><br><div>'+sp[vitri].noidung+'</div>';
-	document.getElementById("sanpham").innerHTML=s;	
+	var s = '<div style="width:80%; margin-left:10%; margin-top:10px;"><img src="'+sp[vitri].hinh+'" width="100%"/></div><br><div style="margin-left:10%; width:80%">'+sp[vitri].noidung+'</div><br><div style="margin-left:10%"><button style="background-color:red; color: white; border-color: red; border-radius: 4px; width:150px; height:45px;" onClick="return cong()">Mua ngay</button></div><br><div><img style="float:left; width:400px; margin-left:18px" src="'+sp[vitri].minhhoa1+'"/></div><div><img style="float:left; width:400px; margin-left:20px" src="'+sp[vitri].minhhoa2+'"/></div>';
+	document.getElementById("sanpham").innerHTML=s;
 }
 
 
@@ -171,7 +171,6 @@ function signout()
 	window.localStorage.removeItem('signinID');
 	window.location="index.html";
 }
-
 
 function NormalSearch()
 {
@@ -265,7 +264,7 @@ function layurl()
 		}
 		xuat_sp(item,t[0],d[2]);
 	}
-	else if(d[0]=='advsearch')
+		else if(d[0]=='advsearch')
 	{
 		t[0] = t[0].replace(/-/g,' ');
 		if (t[2]==''||t[2] < 0) {t[2]= 0;}
@@ -323,6 +322,7 @@ function layurl()
 		}
 	}
 }
+
 
 window.onload = function(){			
 	if (window.localStorage.getItem ('signinID')==null)

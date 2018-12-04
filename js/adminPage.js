@@ -10,6 +10,11 @@ function viewproduct(){
 	document.getElementById("adchoice").innerHTML=s;
 }
 
+function addproduct()
+{
+	window.open("themsanpham.html","","width=710,height=400,top=300,left=300");
+}
+
 function DSSP()
 {
 	var s = '<div><select id="adtl" onChange="return Item(this)">';
@@ -18,7 +23,8 @@ function DSSP()
 	{
 		a += '<option value="' + m[i].mamenu + '">'+ m[i].ten +'</option>';
 	}
-	s += a + '</select><input type="button" value="Thêm sản phẩm" id="addsp"></div><br>';
+	a += '<option value="wallet">Steam wallet code</option>';
+	s += a + '</select><input type="button" value="Thêm sản phẩm" id="addsp" onclick="addproduct()"></div><br>';
 	document.getElementById("theloai").innerHTML=s;
 }
 
@@ -27,21 +33,48 @@ function Item(obj)
 	var b = document.getElementById("adtl").value;
 	var item = new Array();
 	var sl=0;
-	for(var j=0;j<sp.length;j++)
+	if(b.indexOf('wallet')!=-1)
 	{
-		var c = (sp[j].mamenu).indexOf(b);
-		
-		if(c!=-1){
-			item[sl]=sp[j];
-			sl++;
-		}
-		else if(b.indexOf('all')!=-1)
-		{
-			item[sl] = sp[j];
-			sl++;
-		}
+		xuat_wallet();
 	}
-	xuat_DSSP(item);
+	else
+	{
+		for(var j=0;j<sp.length;j++)
+		{
+			var c = (sp[j].mamenu).indexOf(b);
+			
+			if(c!=-1){
+				item[sl]=sp[j];
+				sl++;
+			}
+			else if(b.indexOf('all')!=-1)
+			{
+				item[sl] = sp[j];
+				sl++;
+			}
+		}
+		xuat_DSSP(item);
+	}
+}
+
+function xuat_wallet()
+{
+	var s = `<table border="1" style="border-collapse: collapse; width: 100%; text-align: center;"><tr bgcolor="orange">
+		<td style="width:10%">MASP</td>
+		<td style="width:30%">Ảnh</td>
+		<td style="width:25%">Tên thẻ</td>
+		<td style="width:20%">Giá(VNĐ)</td></tr>`;
+		for(var i=0;i<card.length;i++)
+		{
+			s += `<tr>
+				<td style="width:10%">`+ card[i].masp +`</td>
+				<td style="width:30%">`+ card[i].hinh +`</td>
+				<td style="width:25%">`+ card[i].ten +`</td>
+				<td style="width:20%">`+ card[i].gia +`</td>
+				<td style="width:15%"><input type="button" value="sửa">&emsp;<input type="button" onclick="xoasp()" value="xóa"></td></tr>`;
+		}
+	s+=`</table>`;
+	document.getElementById("thongtin").innerHTML=s;
 }
 
 function xuat_DSSP(item)
@@ -49,7 +82,7 @@ function xuat_DSSP(item)
 	var s="";
 	if(item.length==0) document.getElementById("thongtin").innerHTML='<h1>Không có sản phẩm nào.</h1>';
 	else{
-		s += '<table border="1" style="border-collapse: collapse; width: 100%; text-align: center;"><tr>'
+		s += '<table border="1" style="border-collapse: collapse; width: 100%; text-align: center;"><tr bgcolor="orange">'
 			+'<td style="width:3%;height:50px;">MASP</td>'
 			+'<td style="width:15%">Ảnh</td>'
 			+'<td style="width:15%">Tên Game</td>'
@@ -65,7 +98,7 @@ function xuat_DSSP(item)
 			+'<td style="width:10%">'+item[i].mamenu+'</td>'
 			+'<td style="width:10%">'+item[i].gia+'</td>'
 			+'<td style="width:37%">'+item[i].noidung+'</td>'
-			+'<td style="width:10%"><input type="button" value="sửa"><input type="button" onclick="xoasp()" value="xóa"></td></tr>';
+			+'<td style="width:10%"><input type="button" value="sửa">&emsp;<input type="button" onclick="xoasp()" value="xóa"></td></tr>';
 		}
 		s+='</table>';
 		document.getElementById("thongtin").innerHTML=s;
@@ -80,16 +113,38 @@ function xoasp()
 	}
 }
 
+function xuat_donhang()
+{
+	var a = `<p>Từ: <input type="date" name="fday">&emsp;Đến: <input type="date" name="tday">&emsp;<input type="button" name="dsearch" value="Lọc"></p>`;
+	var b = `<table width="100%" border="1" style="border-collapse: collapse; text-align:center">
+	<tr bgcolor="orange">
+		<td>STT</td>
+		<td>Khách hàng</td>
+		<td>Đơn hàng</td>
+		<td>Thành tiền</td>
+		<td>Thời gian</td>
+		<td>Trạng thái</td>
+		<td><input type="button" name="save" value="Lưu"></td></tr>
+	</table>`;
+	document.getElementById("theloai").innerHTML=a;
+	document.getElementById("thongtin").innerHTML=b;
+}
+
 function layurlad(){
 	var url = window.location.href;
 	var text = url.split('?');
 	var t = text[1];
 	t = t.split('&');
-	switch(t[0])
+	for(var i=0;i<view.length;i++)
 	{
-		case 'DSSP':{
+		if(t[0]=='DSSP')
+		{
 			DSSP();
 			Item();
+		}
+		else if(t[0]=='DH')
+		{
+			xuat_donhang();
 		}
 	}
 }

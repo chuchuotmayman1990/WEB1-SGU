@@ -4,17 +4,18 @@
 <meta charset="utf-8">
 <title>Untitled Document</title>
 <script src="js/productmenu.js"></script>
+
 </head>
 
 <body>
-<form onSubmit="return check();">
-  <table width="800px;" border="1">
+<form name="addproduct" onSubmit="return check();">
+  <table width="700px;">
     <tbody>
 		<tr>
         	<td colspan="2" style="font-size: 40px; text-align: center"><strong>Thêm sản phẩm</strong></td>
       	</tr>
       	<tr>
-			<td style="width: 200px;">Mã sản phẩm:</td>
+			<td style="width: 100px;">Mã sản phẩm:</td>
 			<td style="width: 600px;"><input type="text" name="addid"></td>
 		</tr>
 		<tr>
@@ -23,8 +24,7 @@
 		</tr>
 		<tr>
 			<td>Hình ảnh:</td>
-			<td>
-			</td>
+			<td><input type="file" name="addimg" accept="image/png, image/jpg, image/jpeg"></td>
 		</tr>
 		<tr>
 			<td>Thể loại:</td>
@@ -50,20 +50,94 @@
 		</tr>
 		<tr>
 			<td>Thông tin sản phẩm:</td>
-			<td><textarea rows="4" cols="60"></textarea></td>
+			<td><textarea rows="4" cols="60" name="addinf"></textarea></td>
 		</tr>
 		<tr>
-			<td><input type="submit" value="Thêm sản phẩm"></td>
-			<td><button onClick="window.close()">Hủy</button></td>
+			<td colspan="2"><input type="submit" value="Thêm sản phẩm"></td>
 		</tr>
     </tbody>
   </table>
 </form>
-	<table>
-		<tbody>
-			<tr><th cosplan="2" style="text-align: center; font-size: 40px;"></th></tr>
-			
-		</tbody>
-	</table>
+<script>
+	function check()
+	{
+		flag=1;
+		var id = document.addproduct.addid;
+		var name = document.addproduct.addname;
+		var img = document.addproduct.addimg;
+		var dd = /(\.jpg|\.jpeg|\.png)/i;
+		var theloai = document.addproduct.theloai;
+		var tl = 0;
+		var gia = document.addproduct.addprice;
+		var ttsp = document.addproduct.addinf;
+		for(var i=0;i<theloai.length;i++)
+		{
+			if(theloai[i].checked === true) tl++;
+		}
+		if(id.value=="")
+		{	
+			alert("Xin vui lòng nhập mã sản phẩm.");
+			id.focus();
+			flag=0;
+		}
+		else if(name.value=="")
+		{	
+			alert("Xin vui lòng nhập tên sản phẩm.");
+			name.focus();
+			flag=0;
+		}
+		else if(img.value=="")
+		{
+			alert("Xin vui lòng thêm hình ảnh.")
+			img.focus();
+			flag=0;
+		}
+		else if(!dd.exec(img.value))
+		{
+			alert("Định dạng ảnh không đúng.")
+			img.focus();
+			flag=0;
+		}
+		else if(tl==0)
+		{
+			alert("Xin vui lòng chọn ít nhất 1 thể loại.");
+			flag=0;
+		}
+		else if(gia.value=="")
+		{
+			alert("Xin vui lòng nhập giá tiền.");
+			gia.focus();
+			flag=0;
+		}
+		else if(ttsp.value=="")
+		{
+			alert("Xin vui lòng nhập thông tin sản phẩm.");
+			ttsp.focus();
+			flag=0;
+		}
+		else
+		{
+			for(var i=0;i<sp.length;i++)
+			{
+				if(sp[i].masp==id.value)
+				{
+					alert("Mã sản phẩm bị trùng.");
+					id.focus();
+					flag=0;
+					break;
+				}
+			}	
+		}
+		if (flag==1)
+		{
+			alert("Thêm sản phẩm thành công.")
+			//window.location="Admin.html";
+			window.close();
+			return false;
+		}
+		else	
+			return false;
+	}
+</script>
 </body>
 </html>

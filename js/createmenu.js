@@ -65,7 +65,7 @@ function cong()
 		alert("Bạn cần phải đăng nhập để mua hàng!");
 	else
 	{
-		
+		alert("Đã thêm vào giỏ hàng.")
 	}
 	return false;
 }

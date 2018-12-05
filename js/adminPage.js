@@ -68,7 +68,7 @@ function xuat_wallet()
 		{
 			s += `<tr>
 				<td style="width:10%">`+ card[i].masp +`</td>
-				<td style="width:30%">`+ card[i].hinh +`</td>
+				<td style="width:30%"><img src="`+ card[i].hinh +`"></td>
 				<td style="width:25%">`+ card[i].ten +`</td>
 				<td style="width:20%">`+ card[i].gia +`</td>
 				<td style="width:15%"><input type="button" value="sửa">&emsp;<input type="button" onclick="xoasp()" value="xóa"></td></tr>`;

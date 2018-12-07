@@ -134,19 +134,11 @@ article #slideShow .images:hover
 .fade {
   -webkit-animation-name: carouselfade;
   -webkit-animation-duration: 1.5s;
-  animation-name: carouselfade;
-  animation-duration: 1.5s;
+  animation: fade;
+  animation-duration: 8.5s;
 }
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-/*==End fade==*/
+@keyframes fade{0% {opacity:0} 50% {opacity:1} 100% {opacity:0}}
+/*==End fade==*/ 
 .prev, .next 
 {
 	position: absolute;

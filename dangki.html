@@ -57,7 +57,7 @@ body{
 			<div>&nbsp;Bảo mật tài khoản:</div>
 			<div style="margin: 2px">
 				<div style="width: 50%; float: left" align="right">Email:</div>
-				<div><input type="email" name="email"></div>
+				<div><input type="email" name="email" id="email"><a style="color: red">*</a></div>
 			</div>
 			<div style="margin: 2px">
 				<div style="width: 50%; float: left" align="right">Câu hỏi bảo mật:</div>
@@ -191,12 +191,19 @@ body{
 </body>
 
 <script>
+function validateEmail(email) 
+{
+   	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+   	return re.test(String(email).toLowerCase());
+}
 function kiemtra()
 {
 	flag=1;
 	var username=document.dangky.tkdk;
 	var password=document.dangky.mkdk;
 	var password_confirm=document.dangky.password_confirm;
+	var e = document.dangky.email;
+
 	if(username.value=="")
 	{	
 		alert("Xin vui lòng nhập vào tên tài khoản.");
@@ -228,6 +235,18 @@ function kiemtra()
 			flag=0;
 //			return false;
 		}
+	else if(e.value=="")
+		{
+			alert("Vui lòng nhập vào email");
+			e.focus();
+			flag=0;
+		}
+	else if(!validateEmail(e.value))
+		{
+			alert("Email không hợp lệ vui lòng thử lại");
+			e.focus();
+			flag=0;
+		}
 //	return true;	
 	if (flag==1)
 	{
@@ -240,6 +259,7 @@ function kiemtra()
 		}
 		window.localStorage.setItem ('user00'+userID, tkdk.value);
 		window.localStorage.setItem ('user00'+userID+'password', mkdk.value);
+		localStorage.i=Number(localStorage.i)+1;
 		window.location="thanhcong.html";
 		return false;
 	}

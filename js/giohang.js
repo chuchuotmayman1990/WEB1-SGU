@@ -1,90 +1,116 @@
 /*Gio hang*/
-function giohang(){
-	var them = document.getElementsByClassName('them');
-    for (var i = 0; i < them.length; i++) {
-        them[i].addEventListener('click', function() {
-            var thong_tin = this.value.split('&');
-            var obj = {
-                danh_muc: thong_tin[0],
-                ma_sp: thong_tin[1]
-            };
-			localStorage.setItem("box_" + localStorage.length, JSON.stringify(obj));
-            alert("Đã thêm game vào giỏ hàng");
-        });
-    }
-}
-/*Load gio hang*/
-function load_vao_cart(){
-	var chieudai=localStorage.length;
-	for(i=0;i<chieudai;i++){
-		var boxone="box_"+i;
-		if(localStorage.getItem(boxone)){
-			var box = JSON.parse(localStorage.getItem(boxone));
-			sp[box.danh_muc];
-            var key_for_url = box.danh_muc+'?'+box.ma_sp;
-            var masp = parseInt(box.ma_sp);
-			var list_sp = document.getElementById('sp_da_them');
-			list_sp.innerHTML += '<div class="sp_cua_ban">\
-			<img src="'+sp[masp].image+'">\
-			<div class="thong_tin_sp">\
-			<a href="chitiet.html?'+key_for_url+'"><p>'+sp[masp].tensp+'</p></a>\
-			<p style="font-size: 20px;">Cung cấp bởi NOVA</p>\
-			<a href="#"><p style="margin-top:40px; color:black; font-size: 20px;">Xóa</p></a>\
-			</div>\
-			<div class="gia_sp">\
-				<p>'+sp[masp].gia+'đ</p>\
-				<p style="text-decoration: line-through;">25.000.000đ</p>\
-				<p>-80%</p>\
-			</div>\
-			<div class="so_luong_cart">\
-				<form>\
-					<input type="text" value="1" class="soluongsp"><br>\
-					<input type="button" value="OK" style="width:40px; height: 30px;margin-top: 20px; font-size: 18px;">\
-				</form>\
-			</div>\
-		</div>';
-		}
-    }
-}
-function xoa_all() {
-	var all=confirm('Bạn có muốn xóa không');
-	if(all==true){
-    	var temp = localStorage.length;
-    	for (var i = 0; i < temp; i++) {
-        	console.log('temp = ' + temp);
-        		if (localStorage.getItem('box_' + i)) {
-            	localStorage.removeItem('box_' + i);
-        	}
-        		console.log('dele = ' + 'deleted_box_' + i);
-        		localStorage.removeItem('deleted_box_' + i);
-		}
-		window.location.assign('giohang.html');
-	}
-	else return false;
-}
-// function xoa_cart() {
-// 	var delete_cart = document.getElementById('clear_all');
-// }
 
- function tinh_tien(){
-	var chieudai=localStorage.length;
-	var sum=0;
-	for(i=0;i<chieudai;i++){
-		var boxone="box_"+i;
-		var box=JSON.parse(localStorage.getItem(boxone));
-		var masp=box.ma_sp;
-		sum += parseFloat(sp[masp].gia);
-		var tong = document.getElementById('tong_tien');
-			tong.innerHTML ='<p style="text-align:center;">Thông tin đơn hàng:</p>\
-			<hr>\
-			<p>Số lượng:<span>'+chieudai+'</span></p>\
-			<hr>\
-			<p>Tạm tính:<span>'+sum+' TRIỆU</span></p>\
-			<hr>\
-			<p>Thành tiền:<span>'+sum+' TRIỆU</span></p>\
-			<hr>\
-			<button type="button" class="xac_nhan_cart" onclick="xacnhanmuahang()">XÁC NHẬN MUA HÀNG</button>';
-	}	
+function xuat_sp()
+{
+	var i = 0;
+	var s=`<table style="text-align:center;" width="100%" border='1'>
+			<tr><td style="width:28%">Hình ảnh</td>
+				<td style="width:40%">Tên sản phẩm</td>
+				<td style="width:15%">Đơn giá</td>
+				<td style="width:10%">Số lượng</td>
+				<td style="width:12%">Xóa</td></tr>`;
+	while(sessionStorage.getItem('sp'+i)!=null)
+	{
+		var x = sessionStorage.getItem('sp'+i);
+		for(var j=0;j<sp.length;j++)
+		{
+			if(sp[j].masp==x) break;
+		}
+		s+=`<tr><td style="width:28%"><img src="`+sp[j].hinh+`" width="100%"/></td>
+			<td style="width:40%">`+sp[j].tengame+`</td>
+			<td style="width:15%">`+sp[j].gia+` VNĐ</td>
+			<td style="width:10%"><button style="width:30%" id="giam" onclick="giam(`+i+`)">-</button><input type="text" value="`+Number(sessionStorage.getItem("soluongsp["+i+"]"))+`" id="sl`+i+`" style="text-align:center; width:25%"/><button style="width:30%" id="tang" onclick="tang(`+i+`)">+</button></td>
+			<td style="width:12%"><button id="xoa`+i+`" onclick="xoa(`+i+`)"><i class="fa fa-trash" style="font-size: 20px;"></i></button></td></tr>`;
+		i++;
+	}
+//	alert(s);
+	s+=`</table>`;
+	document.getElementById('spmua').innerHTML=s;
+	tongtien();
 }
-load_vao_cart();
-tinh_tien();
+
+function giam(i)
+{
+	/*var sl = document.getElementById("sl"+x).value;
+	sl = Number(sl)-1;
+	if(sl>=1) document.getElementById("sl"+x).value=sl;*/
+	sessionStorage.setItem("soluongsp["+i+"]",Number(sessionStorage.getItem("soluongsp["+i+"]"))-1);
+	if(Number(sessionStorage.getItem("soluongsp["+i+"]"))<1) sessionStorage.setItem("soluongsp["+i+"]",1);
+	document.getElementById("sl"+i).value=sessionStorage.getItem("soluongsp["+i+"]");
+	tongtien();
+}
+function tang(i)
+{
+	/*var sl = document.getElementById("sl"+x).value;
+	sl = parseInt(sl)+1;
+	document.getElementById("sl"+x).value=sl;
+	document.getElementById("slsp").innerHTML=Number(document.getElementById("slsp"))+1;*/
+	sessionStorage.setItem("soluongsp["+i+"]",Number(sessionStorage.getItem("soluongsp["+i+"]"))+1);
+	document.getElementById("sl"+i).value=sessionStorage.getItem("soluongsp["+i+"]");
+	tongtien();
+
+}
+function xoa(i)
+{
+	if(confirm("Bạn chắc muốn xóa sản phẩm này?")==true)
+		{
+			while(i <= Number(sessionStorage.getItem("sosp"))){
+				sessionStorage.setItem("sp"+i, sessionStorage.getItem("sp"+(i+1)));
+				sessionStorage.setItem("soluongsp["+i+"]", sessionStorage.getItem("soluongsp["+(i+1)+"]"));
+				i++;
+			}
+			sessionStorage.removeItem("sp"+Number(sessionStorage.getItem("sosp")));
+			sessionStorage.removeItem("soluongsp["+Number(sessionStorage.getItem("sosp"))+"]");
+			sessionStorage.setItem("i", Number(sessionStorage.getItem("i"))-1);
+			sessionStorage.setItem("sosp", Number(sessionStorage.getItem("sosp"))-1);
+			xuat_sp();
+			tongtien();
+		}
+}
+
+function tongtien()
+{
+	var i = 0;
+	var tongtien = 0;
+	var slsp = 0;
+	while(i<sessionStorage.length)
+	{	
+		var x = sessionStorage.getItem('sp'+i);
+		if(x!=null)
+		{
+			var g = Number((sp[x].gia).replace(/\./g,''));
+			var sl = Number(sessionStorage.getItem("soluongsp["+i+"]"));
+			tongtien += g * sl;
+			slsp += sl;
+		}
+		i++;
+	}
+	document.getElementById("slsp").innerHTML=slsp;
+	document.getElementById("tamtinh").innerHTML=tongtien+`đ`;
+	document.getElementById("thanhtien").innerHTML=tongtien+`đ`;
+}
+
+function xoa_all()
+{
+	for(var i = sessionStorage.i-1;i>=0;i--)
+	{
+		sessionStorage.removeItem("sp"+i);
+		sessionStorage.removeItem("soluongsp["+i+"]");
+	}
+	sessionStorage.removeItem("i");
+	sessionStorage.removeItem("sosp");
+	xuat_sp();
+	tongtien();
+}
+
+function xacnhan()
+{	
+
+	alert("Cảm ơn bạn đã đặt hàng, chúng tôi sẽ liên hệ bạn trong thời gian sớm nhất!")
+	//xoa_all();
+}
+
+window.onload=function()
+{
+	xuat_sp();
+}

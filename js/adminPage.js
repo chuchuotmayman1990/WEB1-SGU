@@ -59,19 +59,20 @@ function Item(obj)
 
 function xuat_wallet()
 {
+	var stt =0;
 	var s = `<table border="1" style="border-collapse: collapse; width: 100%; text-align: center;"><tr bgcolor="orange">
-		<td style="width:10%">MASP</td>
+		<td style="width:10%">STT</td>
 		<td style="width:30%">Ảnh</td>
 		<td style="width:25%">Tên thẻ</td>
 		<td style="width:20%">Giá(VNĐ)</td></tr>`;
-		for(var i=0;i<card.length;i++)
+		for(var i=36;i<42;i++)
 		{
-			s += `<tr>
-				<td style="width:10%">`+ card[i].masp +`</td>
-				<td style="width:30%"><img src="`+ card[i].hinh +`"></td>
-				<td style="width:25%">`+ card[i].ten +`</td>
-				<td style="width:20%">`+ card[i].gia +`</td>
+			s += `<tr><td style="width:10%">`+ stt +`</td>
+				<td style="width:30%"><img src="`+ sp[i].hinh +`" width="100%"/></td>
+				<td style="width:25%">`+ sp[i].tengame +`</td>
+				<td style="width:20%">`+ sp[i].gia +`</td>
 				<td style="width:15%"><input type="button" value="sửa">&emsp;<input type="button" onclick="xoasp()" value="xóa"></td></tr>`;
+				stt++;
 		}
 	s+=`</table>`;
 	document.getElementById("thongtin").innerHTML=s;
@@ -83,7 +84,7 @@ function xuat_DSSP(item)
 	if(item.length==0) document.getElementById("thongtin").innerHTML='<h1>Không có sản phẩm nào.</h1>';
 	else{
 		s += '<table border="1" style="border-collapse: collapse; width: 100%; text-align: center;"><tr bgcolor="orange">'
-			+'<td style="width:3%;height:50px;">MASP</td>'
+			+'<td style="width:3%;height:50px;">STT</td>'
 			+'<td style="width:15%">Ảnh</td>'
 			+'<td style="width:15%">Tên Game</td>'
 			+'<td style="width:10%">Thể loại</td>'
@@ -125,9 +126,93 @@ function xuat_donhang()
 		<td>Thời gian</td>
 		<td>Trạng thái</td>
 		<td><input type="button" name="save" value="Lưu"></td></tr>
+	<tr>
+		<td>000</td>
+		<td>vanhung_nguyen843</td>
+		<td>HX1074</td>
+		<td>1748000đ</td>
+		<td>17:38:42 - 29/11/2018</td>
+		<td><select name="status">
+						<option value="0" selected>Đã giao
+						<option value="1">Đã liên hệ
+						<option value="2" >Chưa liên hệ</td>
+		<td><input type="button" name="save" value="Lưu"></td></tr>
+	<tr>
+		<td>001</td>
+		<td>phu98_super</td>
+		<td>WL2738</td>
+		<td>1989000đ</td>
+		<td>20:13:59 - 1/12/2018</td>
+				<td><select name="status">
+						<option value="0" selected>Đã giao
+						<option value="1">Đã liên hệ
+						<option value="2" >Chưa liên hệ</td>
+		<td><input type="button" name="save" value="Lưu"></td></tr>
+	<tr>
+		<td>002</td>
+		<td>trungle9981</td>
+		<td>JK9854</td>
+		<td>2300000đ</td>
+		<td>9:42:17 - 5/12/2018</td>
+				<td><select name="status">
+						<option value="0">Đã giao
+						<option value="1" selected>Đã liên hệ
+						<option value="2" >Chưa liên hệ</td>
+		<td><input type="button" name="save" value="Lưu"></td></tr>
+	<tr>
+		<td>003</td>
+		<td>vanhiep_bros2k</td>
+		<td>QP8722</td>
+		<td>3806500đ</td>
+		<td>18:11:37 7/12/2018</td>
+				<td><select name="status">
+						<option value="0">Đã giao
+						<option value="1">Đã liên hệ
+						<option value="2" selected>Chưa liên hệ</td>
+		<td><input type="button" name="save" value="Lưu"></td></tr>		
 	</table>`;
 	document.getElementById("theloai").innerHTML=a;
 	document.getElementById("thongtin").innerHTML=b;
+}
+
+function xuat_qlu()
+{
+	var i=0;
+	var s = `<table style="width:100%; text-align:center"><tr style="background-color:orange">
+			<td style="width:32%">Tài khoản</td>
+			<td style="width:32%">Mật khẩu</td></tr>`;
+	while(window.localStorage.getItem('user00'+i)!=null)
+	{
+		var id = window.localStorage.getItem('user00'+i);
+		var pw = window.localStorage.getItem('user00'+i+'password');
+		s += `<tr><td>`+id+`</td>
+			<td>`+pw+`</td>`;
+		if(id!='admin')
+		{
+			s += `<td style="width:32%" ><input type="button" value="sửa">&emsp;<input type="button" onclick="xoa_qlu(`+i+`)" value="xóa"></td></tr>`;
+		}
+		i++;
+	}
+	s+=`</table>`;
+	document.getElementById("thongtin").innerHTML=s;
+}
+
+function xoa_qlu(vitri)
+{
+	if(confirm("Bạn có muốn xóa không")==true)
+	{
+		while(vitri<localStorage.i)
+		{
+			localStorage.setItem("user00"+vitri,localStorage.getItem("user00"+(vitri+1)));
+			localStorage.setItem("user00"+vitri+"password",localStorage.getItem("user00"+(vitri+1)+"password"));
+			vitri++;
+		}
+	    window.localStorage.removeItem("user00" + vitri);
+	    window.localStorage.removeItem("user00" + vitri + "password");
+	    localStorage.setItem("i", Number(localStorage.getItem("i"))-1);
+	    xuat_qlu();
+	}
+	
 }
 
 function layurlad(){
@@ -146,9 +231,12 @@ function layurlad(){
 		{
 			xuat_donhang();
 		}
+		else if(t[0]=='QLTK')
+		{
+			xuat_qlu();
+		}
 	}
 }
-
 window.onload = function(){
 	viewproduct();
 	layurlad();

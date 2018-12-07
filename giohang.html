@@ -40,25 +40,26 @@
 		<div style="position: relative; height: 1100px">
 	
 
-			<div id="contentcart">
+			<div id="contentcart" style="position: relative">
 				<div id="sp_da_them">
                     <div id="xoa_all_sp">
                         <form>
                             <button id="clear_all" type="button" onclick="xoa_all()">XÓA TẤT CẢ SẢN PHẨM</button>
                         </form>
                     </div>
+                    <div id="spmua" style="margin-top: 20px"></div>
             	</div>
 
-				<div id="tong_tien">
+				<div id="tong_tien" style="position: absolute; right: 30px; top:0px">
                     <p style="text-align:center;">Thông tin đơn hàng:</p>
                     <hr>
-                    <p>Số lượng:<span>0</span></p>
+                    <p>Số lượng:<span id="slsp"></span></p>
                     <hr>
-                    <p>Tạm tính:<span>0đ</span></p>
+                    <p>Tạm tính:<span id="tamtinh"></span></p>
                     <hr>
-                    <p>Thành tiền:<span>0đ</span></p>
+                    <p>Thành tiền:<span id="thanhtien"></span></p>
                     <hr>
-                    <button type="button" class="xac_nhan_cart" onclick="xacnhanmuahang()">XÁC NHẬN MUA HÀNG</button>
+                    <button type="button" class="xac_nhan_cart" onclick="xacnhan()">XÁC NHẬN MUA HÀNG</button>
                     <div id="sotrang"></div>
             	</div>
         	</div>

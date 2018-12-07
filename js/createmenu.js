@@ -33,7 +33,7 @@ function xuat_sp(temp,x,y)
 	}
 	else{
 		for(var i=vitri;i<temp.length;i++){
-			s += '<div class="product"><a href="index.html?detail=' + temp[i].masp + '" style="text-decoration:none"><img src="' + temp[i].hinh + '"alt="' + temp[i].tengame +'" id="hinhsp" style=" margin-top:25px"/><div><figcaption style="color: white; ">' + temp[i].tengame + '</figcaption></div><div style="  position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%);"></a><span style="color:#27CF2D;"><b>'+temp[i].gia+' VNĐ</b></span><br><input type="button" onClick="cong()" value="Mua ngay" class="buy"></div></div>';
+			s += '<div class="product"><a href="index.html?detail=' + temp[i].masp + '" style="text-decoration:none"><img src="' + temp[i].hinh + '"alt="' + temp[i].tengame +'" id="hinhsp" style=" margin-top:25px"/><div><figcaption style="color: white; ">' + temp[i].tengame + '</figcaption></div><div style="  position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%);"></a><span style="color:#27CF2D;"><b>'+temp[i].gia+' VNĐ</b></span><br><input type="button" onClick="cong('+temp[i].masp+')" value="Mua ngay" class="buy"></div></div>';
 			dem++;
 			if(dem==9) break;
 		}
@@ -49,24 +49,48 @@ function xuat_sp(temp,x,y)
 
 function xuat_allsp()
 {
-	var s = `<div><a href="index.html?all&page=1" style="color:white; text-decoration:none"><h2 style='margin-left: 14px'>Xem tất cả sản phẩm&emsp;>></h2></a></div>`;
-	var dem =0;
+	var s = `<div style="font-size: 22px;margin-top: 14px;margin-bottom: 9px;margin-left: 14px;">Nổi bật</div><div style="margin-left:590px; position:absolute; bottom:0px;"><a href="index.html?all&page=1" style="color:white; text-decoration:none"><h2 style='margin-left: 14px'>Xem tất cả sản phẩm ❯❯</h2></a></div>`;
+	var dem =0; 
 	for(var i=0;i<sp.length;i++){
-		s += '<div class="product"><a href="index.html?detail=' + sp[i].masp + '" style="text-decoration:none"><img src="' + sp[i].hinh + '"alt="' + sp[i].tengame +'" id="hinhsp" style=" margin-top:25px"/><div><figcaption style="color: white; ">' + sp[i].tengame + '</figcaption></div><div style="  position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%);"></a><span style="color:#27CF2D;"><b>'+sp[i].gia+' VNĐ</b></span><br><input type="button" onClick="cong()" value="Mua ngay" class="buy"></div></div>';
+		s += '<div class="product"><a href="index.html?detail=' + sp[i].masp + '" style="text-decoration:none"><img src="' + sp[i].hinh + '"alt="' + sp[i].tengame +'" id="hinhsp" style=" margin-top:25px"/><div><figcaption style="color: white; ">' + sp[i].tengame + '</figcaption></div><div style="  position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%);"></a><span style="color:#27CF2D;"><b>'+sp[i].gia+' VNĐ</b></span><br><input type="button" onClick="cong('+sp[i].masp+')" value="Mua ngay" class="buy"></div></div>';
 		dem++;
 		if(dem==9) break;
 	}
 	document.getElementById("sanpham").innerHTML=s;
 }
 
-function cong() 
+function cong(vitri) 
 {
 	if (window.localStorage.getItem ('signinID')==null)
 		alert("Bạn cần phải đăng nhập để mua hàng!");
 	else
 	{
-		alert("Đã thêm vào giỏ hàng.")
+		alert("Đã thêm vào giỏ hàng.");
+		for(var j = 0; j <= Number(sessionStorage.getItem("sosp")); j++)
+    	{
+        	if(sessionStorage.getItem("sp"+j)==vitri)
+        	{
+            	sessionStorage.setItem("soluongsp["+j+"]",Number(sessionStorage.getItem("soluongsp["+j+"]"))+1);
+            	return;
+        	}
+        	
+    	}
+    	if(sessionStorage.i!=null){
+	        sessionStorage.setItem("sp"+sessionStorage.i, vitri);
+	        sessionStorage.setItem("sosp", sessionStorage.i);
+	        sessionStorage.setItem("soluongsp["+sessionStorage.i+"]", 1);
+	        sessionStorage.i=Number(sessionStorage.i) +1;
+	        
+	    }
+	    else {
+		        sessionStorage.i = 0;
+		        sessionStorage.setItem("sp"+sessionStorage.i, vitri);        
+		        sessionStorage.setItem("sosp", sessionStorage.i);
+		        sessionStorage.setItem("soluongsp["+sessionStorage.i+"]", 1);
+		        sessionStorage.i=Number(sessionStorage.i) +1;  
+	    }
 	}
+	window.location = window.location;
 	return false;
 }
 
@@ -122,16 +146,16 @@ function email_check()
 function xuat_steamwallet()
 {
 	var s="";
-	for(var i=0;i<card.length;i++)
+	for(var i=36;i<42;i++)
 	{
-		s += '<div class="product"><a href="index.html?wallet' + card[i].masp + '" style="text-decoration:none"><img src="' + card[i].hinh + '"alt="' + card[i].ten +'" id="hinhsp" style=" margin-top:25px"/><div><figcaption style="color: white; ">' + card[i].ten + '</figcaption></div><div style="  position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%);"></a><span style="color:#27CF2D;"><b>'+card[i].gia+' VNĐ</b></span><br><input type="button" onClick="cong()" value="Mua ngay" class="buy"></div></div>';
+		s += '<div class="product"><a href="index.html?wallet' + sp[i].masp + '" style="text-decoration:none"><img src="' + sp[i].hinh + '"alt="' + sp[i].tengame +'" id="hinhsp" style=" margin-top:25px"/><div><figcaption style="color: white; ">' + sp[i].tengame + '</figcaption></div><div style="  position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%);"></a><span style="color:#27CF2D;"><b>'+sp[i].gia+' VNĐ</b></span><br><input type="button" onClick="cong('+sp[i].masp+')" value="Mua ngay" class="buy"></div></div>';
 	}
 	document.getElementById("sanpham").innerHTML=s;
 }
 
 function xuat_chitietsp(vitri)
 {
-	var s = '<div style="width:80%; margin-left:10%; margin-top:10px;"><img src="'+sp[vitri].hinh+'" width="100%"/></div><br><div style="margin-left:10%; width:80%">'+sp[vitri].noidung+'</div><br><div style="margin-left:10%"><button style="background-color:red; color: white; border-color: red; border-radius: 4px; width:150px; height:45px;" onClick="return cong()">Mua ngay</button></div><br><div><img style="float:left; width:400px; margin-left:18px" src="'+sp[vitri].minhhoa1+'"/></div><div><img style="float:left; width:400px; margin-left:20px" src="'+sp[vitri].minhhoa2+'"/></div>';
+	var s = '<div style="width:80%; margin-left:10%; margin-top:10px;"><img src="'+sp[vitri].hinh+'" width="100%"/></div><br><div style="margin-left:10%; width:80%">'+sp[vitri].noidung+'</div><br><div style="margin-left:10%"><button style="background-color:red; color: white; border-color: red; border-radius: 4px; width:150px; height:45px;" onClick="return cong('+sp[vitri].masp+')">Mua ngay</button></div><br><div><img style="float:left; width:400px; margin-left:18px" src="'+sp[vitri].minhhoa1+'"/></div><div><img style="float:left; width:400px; margin-left:20px" src="'+sp[vitri].minhhoa2+'"/></div>';
 	document.getElementById("sanpham").innerHTML=s;
 }
 
@@ -151,12 +175,17 @@ function Logined()
 {
 	var userID = window.localStorage.getItem ('signinID');
 	var username = window.localStorage.getItem('user00' + userID);
+	var i = 0;
+	if (window.sessionStorage.i==null)
+		var productNum = 0;
+	else 
+		var productNum = window.sessionStorage.i;
 	var s="";
 	s += `
 		<a style="float: right; color: white; margin: 5px; margin-top: 139px;" href="javascript:void(0);">
 		<div class="dropdown">Chào <span>`+username+`</span>
 			<div class="dropdown-content">
-				<p><a href="giohang.html" style="color:white">Xem giỏ hàng <i class="fa fa-cart-plus"></i></a></p>
+				<p><a href="giohang.html" style="color:white">Xem giỏ hàng <i class="fa fa-cart-plus"> `+productNum+`</i></a></p>
 				<p><a href="javascript:void(0);" onClick="signout()" style="color:white">Đăng xuất <i class="fa fa-sign-out"></i></a></p>`
 		if (username == "admin") 
 		{ s += `<p><a href="Admin.html" style="color:white">Quản trị <i class="fa fa-address-book-o"></i></a></p>`;}
@@ -324,7 +353,10 @@ function layurl()
 }
 
 
-window.onload = function(){			
+window.onload = function(){
+	localStorage.setItem('user000','admin');
+	localStorage.setItem('user000password','4tshop321');
+	if(localStorage.i==null) localStorage.i=0;	
 	if (window.localStorage.getItem ('signinID')==null)
 		notLogin();
 	else

@@ -215,7 +215,7 @@ function NormalSearch()
 {
 	var s = '<input type="search" id="search" placeholder=" Tìm kiếm ..." size="53" />'
 			+'<button id="searchbt" onClick="timkiem()"><i class="fa fa-search" style="margin-top: -6px;"></i></button><br>'
-			+'<input id="ChagneSearch" type="button" value="Tìm kiếm nâng cao" onClick="AdvancedSearch()" style="margin-left:-270px; margin-top: 10px; border-radius: 5px;">';
+			+'<input id="ChagneSearch" type="button" value="Tìm kiếm nâng cao" onClick="AdvancedSearch()" style="margin-left:-270px; margin-top: 10px; border-radius: 5px; cursor: pointer;">';
 	document.getElementById("searchdiv").innerHTML = s;
 }
 
@@ -232,7 +232,7 @@ function AdvancedSearch()
 	s += '</select>'
 		+'<p style="margin: 0.25em 0; margin-left: 130px">Giá</p>'
 		+'<input id="From" type="text" style="width: 70px; margin-left: 10px;" placeholder="Từ"/> ~ <input id="To" type="text" style="width: 70px" placeholder="Đến"/>'
-		+'<input id="ChagneSearch" type="button" value="Tìm kiếm thường" onclick="NormalSearch()" style="margin-left: 14px; border-radius: 5px" />';
+		+'<input id="ChagneSearch" type="button" value="Quay lại" onclick="NormalSearch()" style="margin-left: 14px; border-radius: 5px; cursor: pointer;" />';
 	document.getElementById("searchdiv").innerHTML = s;
 }
 
@@ -376,6 +376,7 @@ window.onload = function(){
 	createmenu();
 	layurl();
 }
+
 
 
 

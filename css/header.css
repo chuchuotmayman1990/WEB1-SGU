@@ -12,11 +12,16 @@
 	position: relative;
 	color:#FFF;
 	background:#000;
+	border: none;
+	padding: 7px;
 }
 #header button{
 	position: relative;
 	color:#FFF;
 	background:#000;
+	border: none;
+	padding: 14.3px;
+	
 }
 #header input:before{
 	content: "\f002";

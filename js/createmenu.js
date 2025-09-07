@@ -233,7 +233,7 @@ function AdvancedSearch()
 		+'<p style="margin-left: 130px; margin-bottom:8px; margin-top:7px; font-size:14px;">Mức giá</p>'
 		+'<div class="advance-search-price">'
 		+	'<input id="From" type="text" style="width: 70px; margin-left: 10px;" placeholder="Từ"/>';
-		+	'<span class="tilde">~</span>';
+		+	' ~ ';
 		+	'<input id="To" type="text" style="width: 70px" placeholder="Đến"/>';
 		+	'<input id="ChagneSearch" type="button" value="Quay lại" onclick="NormalSearch()" style="margin-left: 14px; border-radius: 5px; cursor: pointer;" />';
 		+'</div>';

@@ -15,16 +15,15 @@ m[8] = new Menu("ST", "Sinh tồn");
 m[9] = new Menu("FPS", "FPS");
 m[10] = new Menu("TGM", "Thế giới mở");
 m[11] = new Menu("CT", "Chiến thuật");
-function sanpham(masp,mamenu,tengame,gia,hinh,noidung,minhhoa1,minhhoa2)
-{
-	this.masp=masp;
-	this.mamenu=mamenu;
-	this.tengame=tengame;
-	this.gia=gia;
-	this.hinh=hinh;
-	this.noidung=noidung;
-	this.minhhoa1=minhhoa1;
-	this.minhhoa2=minhhoa2;
+function sanpham (masp, mamenu, tengame, gia, hinh, noidung, minhhoa1, minhhoa2) {
+	this.masp = masp;
+	this.mamenu = mamenu;
+	this.tengame = tengame;
+	this.gia = gia;
+	this.hinh = hinh;
+	this.noidung = noidung;
+	this.minhhoa1 = minhhoa1;
+	this.minhhoa2 = minhhoa2;
 }
 var sp = new Array();
 sp[0] = new sanpham("0","HD FPS CT","Counter Strike: Global Offense","140.000","./img/content/csgo/csgo-0.jpg","<b>Mã sản phẩm:</b> csgo-0<br><b>Tình trạng:</b> <span style='color:#27CF2D;'>Còn hàng</span><br><b>Giá:</b> <span style='color:#27CF2D;'>140.000 VNĐ</span><br><br><br><b>GIỚI THIỆU VỀ GAME:</b></br></br> Counter-Strike: Global Offensive (viết tắt là CS:GO) là một trò chơi máy tính thuộc thể loại bắn súng góc nhìn thứ nhất và chiến thuật trực tuyến được phát triển bởi Valve Corporation và Hidden Path Entertainment, đơn vị cũng đã duy trì Counter-Strike: Source sau khi phát hành. Đây là bản thứ tư và cũng là bản mới nhất trong dòng game nổi tiếng Counter-Strike.<br><br><br><b>CẤU HÌNH TỐI THIỂU:</b></br></br>Hệ điều hành: Windows 7 SP1, Windows 8/8.1 (chỉ hỗ trợ 64bit)<br>CPU: Intel Core i5-750 @ 2.6 GHz hoặc AMD Phenom II X4 955 @ 3.2 GHz<br>RAM: 4GB<br>Video card: Hỗ trợ DirectX 11 với 1GB VRAM (NVIDIA GeForce GTX 460 hoặc AMD Radeon HD5850<br>HDD: 10 GB<br>Card âm thanh: 100% DirectX 10 compatible","./img/content/csgo/csgo-1.jpg","./img/content/csgo/csgo-2.jpg");
@@ -69,35 +68,36 @@ sp[38] = new sanpham("38","","Steam Wallet Code 10$","240.000","./img/card/card1
 sp[39] = new sanpham("39","","Steam Wallet Code 20$","480.000","./img/card/card20.jpg","","","");
 sp[40] = new sanpham("40","","Steam Wallet Code 50$","1.220.000","./img/card/card50.jpg","","","");
 sp[41] = new sanpham("41","","Steam Wallet Code 100$","2.300.000","./img/card/card100.jpg","","","");
-function Card(masp,ten,gia,hinh)
+function Card(masp, ten, gia, hinh)
 {
-	this.masp=masp;
-	this.ten=ten;
-	this.gia=gia;
-	this.hinh=hinh;
+	this.masp = masp;
+	this.ten = ten;
+	this.gia = gia;
+	this.hinh = hinh;
 }
 
 var card = new Array();
 
-function View(ma,ten)
+function View(ma, ten)
 {
-	this.ma=ma;
-	this.ten=ten;
+	this.ma = ma;
+	this.ten = ten;
 }
+
 var view = new Array();
 view[0] = new View("QLTK", "Quản lý tài khoản");
 view[1] = new View("DH", "Đơn hàng");
 view[2] = new View("DSSP", "Danh sách sản phẩm");
 
-function Thongtin(hoten,mssv,congviec)
-{
-	this.hoten=hoten;
-	this.mssv=mssv;
-	this.congviec=congviec;
+function Thongtin(hoten, mssv, congviec) {
+	this.hoten = hoten;
+	this.mssv = mssv;
+	this.congviec = congviec;
 }
+
 var tt = new Array();
 tt[0] = new Thongtin("Ngô Chí Trung","3117410277","Javascript(Hiển thị SP, Chi tiết SP, Thông tin, Tìm kiếm, Giỏ hàng), Trang admin(70%)");
-tt[1] = new Thongtin("Hà Thiện Tuấn","3117410285","Javascript(Danh mục, Kiểm tra ĐN-ĐK, localStorage, Giỏ hàng), Giao diện hoàn thiện(index-ĐN-ĐK), Slideshow, Trang admin(30%)");
-tt[2] = new Thongtin("Vũ Minh Thế","3117410245","Giao diện sơ khai(index-ĐN-ĐK), Banner, Logo, Footer, Chi tiết SP, Giỏ hàng(Giao diện)");
+tt[1] = new Thongtin("Hà Thiện Tuấn","3117410285","Javascript(Danh mục, Kiểm tra ĐN-ĐK, localStorage, Giỏ hàng), Giao diện (index-ĐN-ĐK), Slideshow, Trang admin(30%)");
+tt[2] = new Thongtin("Vũ Minh Thế","3117410245","Giao diện (index-ĐN-ĐK), Banner, Logo, Footer, Chi tiết SP, Giỏ hàng (Giao diện)");
 tt[3] = new Thongtin("Trần Thanh Toàn","3117410265","Footer, Chi tiết SP, Giở hàng(Giao diện)");
 

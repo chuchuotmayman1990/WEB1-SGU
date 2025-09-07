@@ -215,7 +215,7 @@ function NormalSearch()
 {
 	var s = '<input type="search" id="search" placeholder=" Tìm kiếm ..." size="53" />'
 			+'<button id="searchbt" onClick="timkiem()"><i class="fa fa-search" style="margin-top: -6px;"></i></button><br>'
-			+'<input id="ChagneSearch" type="button" value="Tìm kiếm nâng cao" onClick="AdvancedSearch()" style="margin-left:-270px; margin-top: 10px; border-radius: 5px; cursor: pointer;">';
+			+'<button id="ChagneSearch" type="button" onClick="AdvancedSearch()" style="margin-left:-615px; margin-top: 10px; border-radius: 5px; cursor: pointer; padding-top: 8px;padding-bottom: 8px;">Tìm kiếm nâng cao</button>';
 	document.getElementById("searchdiv").innerHTML = s;
 }
 
@@ -224,19 +224,19 @@ function AdvancedSearch()
 	var s ='<input type="search" id="searchadv" placeholder=" Tìm kiếm nâng cao..." size="53" style="margin-left: 10px;" />'
 		+'<button id="searchbt" onclick="timkiemnangcao()" style="margin-left: 10px;"><i class="fa fa-search" style="margin-top: -6px;"></i></button>'
 		+'<p style="margin-left: 130px; margin-top: -3px; margin-bottom: 15px; font-size:14px;">Thể loại</p>'
-		+'<select id="Kind" style="width: 190px; margin-left: 10px; margin-top: -12px; background-color:black; color: white; padding: 5px; border-radius: 5px; cursor: pointer;">'
+		+'<select id="Kind" class="my-select-box" style="width: 197px; margin-left: 10px; margin-top: -12px; background-color:black; color: white; padding: 5px; border-radius: 5px; cursor: pointer; padding-left: 9px;">'
 			+'<option value="all">Tất cả</option>';
 			for (var i=0; i<m.length; i++) {
 				s += '<option value="'+ m[i].mamenu +'">' + m[i].ten + '</option>';
 			}
 	s += '</select>'
 		+'<p style="margin-left: 130px; margin-bottom:8px; margin-top:7px; font-size:14px;">Mức giá</p>'
-		//+'<div class="advance-search-price">'
-		+	'<input id="From" type="text" style="width: 70px; margin-left: 10px;" placeholder="Từ"/>';
-		+	' ~ ';
-		+	'<input id="To" type="text" style="width: 70px" placeholder="Đến"/>';
-		+	'<input id="ChagneSearch" type="button" value="Quay lại" onclick="NormalSearch()" style="margin-left: 14px; border-radius: 5px; cursor: pointer;" />';
-		//+'</div>';
+		+'<div class="advance-search-price">'
+		+	'<input id="From" type="text" style="width: 70px; margin-left: 10px; padding-left: 9px;" placeholder="Từ"/>'
+		+	'<span class="tilde">~</span>'
+		+	'<input id="To" type="text" style="width: 70px; padding-left: 9px;" placeholder="Đến"/>'
+		+	'<button id="ChagneSearch" type="button" onclick="NormalSearch()" style="margin-left: 14px; border-radius: 5px; cursor: pointer; padding: 8px 13px 8px 13px;">Quay lại</button>'
+		+'</div>';
 	document.getElementById("searchdiv").innerHTML = s;
 }
 

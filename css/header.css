@@ -8,6 +8,7 @@
 		border: hidden;
 		position: relative;
 }
+
 #header input{
 	position: relative;
 	color:#FFF;
@@ -16,7 +17,9 @@
 	padding: 7px;
 	border-radius: 7px;
 	top: -8px;
+	width: 605px;
 }
+
 #header button{
 	position: relative;
 	color:#FFF;
@@ -25,8 +28,8 @@
 	padding: 14.3px;
 	top: -8px;
 	cursor: pointer;
-	
 }
+
 #header input:before{
 	content: "\f002";
 	font-style: normal;
@@ -39,13 +42,16 @@
     top: 10px;
     left: 0;
 }
+
 #menu{
 	background: #222222;
 }
+
 #menu ul{
 	list-style-type: none;
 	text-align: center;
 }
+
 #menu li{
 	display: inline-block;
 	width: 120px;
@@ -54,18 +60,22 @@
 	margin-left: -5px;
 	position: relative;
 }
+
 #menu a{
 	text-decoration: none;
 	color: white;
 	display: block;
 }
+
 #menu a:hover {
 	background: white;
 	color: black;
 }
+
 #menu li:hover .submenu{
 	display: block;
 }
+
 #search
 {
 	margin: 10px; 
@@ -73,12 +83,14 @@
 	margin-top: 20px;
 	border-radius: 10px;
 }
+
 #searchbt
 {
 	margin-top: 20px;
 	height: 22px;
 	border-radius: 10px;
 }
+
 #member
 {
 	position: absolute; 
@@ -115,5 +127,15 @@
 
 .advance-search-price .tilde {
   font-size: 18px;       
-  line-height: 1;        
+  margin-top: -15px; 
+}
+
+.my-select-box {
+	appearance: none;       
+	-moz-appearance: none;   
+	-webkit-appearance: none;
+	padding-right: 30px;     
+	background: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") no-repeat right 3px center;
+	background-color: black;
+	color: white;
 }

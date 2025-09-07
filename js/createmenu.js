@@ -222,7 +222,7 @@ function NormalSearch()
 function AdvancedSearch()
 {
 	var s ='<input type="search" id="searchadv" placeholder=" Tìm kiếm nâng cao..." size="53" style="border-radius: 10px; margin-left: 10px;" />'
-		+'<button id="searchbt" onclick="timkiemnangcao()" style="margin-left: 8px;"><i class="fa fa-search" style="margin-top: -6px;"></i></button>'
+		+'<button id="searchbt" onclick="timkiemnangcao()" style="margin-left: 10px;"><i class="fa fa-search" style="margin-top: -6px;"></i></button>'
 		+'<p style="margin-left: 130px; margin-top: 5px">Thể loại</p>'
 		+'<select id="Kind" style="width: 100px; margin-left: 10px; margin-top: -12px; background-color:black; color: white;">'
 			+'<option value="all">Tất cả</option>';
@@ -376,6 +376,7 @@ window.onload = function(){
 	createmenu();
 	layurl();
 }
+
 
 
 

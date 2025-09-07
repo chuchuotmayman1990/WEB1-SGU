@@ -106,3 +106,14 @@
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.advance-search-price {
+  display: flex;
+  align-items: center;   
+  gap: 6px;              
+}
+
+.advance-search-price .tilde {
+  font-size: 18px;       
+  line-height: 1;        
+}

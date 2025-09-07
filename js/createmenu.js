@@ -164,9 +164,9 @@ function notLogin()
 {
 	var s="";
 	s += `
-		<a href="dangki.html" style="float: right; color: white; margin: 5px; margin-top: 136px">Đăng kí</a>
-		<a href="dangnhap.html" style="float: right; color: white; margin: 5px; margin-top: 136px">Đăng nhập</a>
-		<a href="giohang.html" class="fa fa-cart-plus" style="float: right; color: white; margin: 4px; margin-top: 137px"></a>
+		<a href="dangki.html" style="float: right; color: white; margin-right: 10px; margin-top: 136px">Đăng kí</a>
+		<a href="dangnhap.html" style="float: right; color: white; margin-right: 10px; margin-top: 136px">Đăng nhập</a>
+		<a href="giohang.html" class="fa fa-cart-plus" style="float: right; color: white; margin-right: 10px; margin-top: 137px"></a>
 		`;
 	document.getElementById("member").innerHTML=s;
 }
@@ -366,3 +366,4 @@ window.onload = function(){
 	createmenu();
 	layurl();
 }
+

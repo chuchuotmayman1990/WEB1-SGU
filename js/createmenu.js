@@ -214,7 +214,7 @@ function signout()
 function NormalSearch()
 {
 	var s = '<input type="search" id="search" placeholder=" Tìm kiếm ..." size="53" />'
-			+'<button id="searchbt" onClick="timkiem()"><i class="fa fa-search"></i></button><br>'
+			+'<button id="searchbt" onClick="timkiem()"><i class="fa fa-search" style="margin-top: -6px;"></i></button><br>'
 			+'<input id="ChagneSearch" type="button" value="Tìm kiếm nâng cao" onClick="AdvancedSearch()" style="margin-left:-270px; margin-top: 10px; border-radius: 5px;">';
 	document.getElementById("searchdiv").innerHTML = s;
 }
@@ -376,6 +376,7 @@ window.onload = function(){
 	createmenu();
 	layurl();
 }
+
 
 
 

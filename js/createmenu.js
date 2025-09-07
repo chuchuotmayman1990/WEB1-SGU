@@ -33,7 +33,9 @@ function xuat_sp(temp,x,y)
 	}
 	else{
 		for(var i=vitri;i<temp.length;i++){
-			s += '<div class="product"><a href="index.html?detail=' + temp[i].masp + '" style="text-decoration:none"><img src="' + temp[i].hinh + '"alt="' + temp[i].tengame +'" id="hinhsp"/><div><figcaption style="color: white; ">' + temp[i].tengame + '</figcaption></div><div style="  position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%);"></a><span style="color:#27CF2D;"><b>'+temp[i].gia+' VNĐ</b></span><br><input type="button" onClick="cong('+temp[i].masp+')" value="Mua ngay" class="buy"></div></div>';
+			s += '<div class="product"><a href="index.html?detail=' + temp[i].masp + '" style="text-decoration:none"><img src="' + temp[i].hinh + '"alt="' + temp[i].tengame +'" id="hinhsp"/><div><figcaption style="color: white; ">' + temp[i].tengame + '</figcaption></div>';
+			s += '<span style="color:#27CF2D;"><b>'+temp[i].gia+' VNĐ</b></span>';
+			s += '<div style="position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%); display: flex;"></a><input type="button" onClick="cong('+temp[i].masp+')" value="Mua ngay" class="buy"></div></div>';
 			dem++;
 			if(dem==9) break;
 		}
@@ -52,7 +54,9 @@ function xuat_allsp()
 	var s = `<div style="font-size: 22px;margin-top: 14px;margin-bottom: 9px;margin-left: 14px;">Game nổi bật trên Steam</div><div style="right:45px; position:absolute; bottom:0px;"><a href="index.html?all&page=1" style="color:white; text-decoration:none"><h2>Xem tất cả sản phẩm ❯❯</h2></a></div>`;
 	var dem =0; 
 	for(var i=0;i<sp.length;i++){
-		s += '<div class="product"><a href="index.html?detail=' + sp[i].masp + '" style="text-decoration:none"><img src="' + sp[i].hinh + '"alt="' + sp[i].tengame +'" id="hinhsp"/><div><figcaption style="color: white; ">' + sp[i].tengame + '</figcaption></div><div style="  position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%);"></a><span style="color:#27CF2D;"><b>'+sp[i].gia+' VNĐ</b></span><br><input type="button" onClick="cong('+sp[i].masp+')" value="Mua ngay" class="buy"></div></div>';
+		s += '<div class="product"><a href="index.html?detail=' + sp[i].masp + '" style="text-decoration:none"><img src="' + sp[i].hinh + '"alt="' + sp[i].tengame +'" id="hinhsp"/><div><figcaption style="color: white; ">' + sp[i].tengame + '</figcaption></div>';
+		s += '<span style="color:#27CF2D;"><b>'+sp[i].gia+' VNĐ</b></span>';
+		s += '<div style="position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%); display: flex;"></a><input type="button" onClick="cong('+sp[i].masp+')" value="Mua ngay" class="buy"></div></div>';
 		dem++;
 		if(dem==9) break;
 	}
@@ -366,6 +370,7 @@ window.onload = function(){
 	createmenu();
 	layurl();
 }
+
 
 
 

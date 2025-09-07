@@ -7,6 +7,7 @@
 		margin: 0 auto;
 		border: hidden;
 		position: relative;
+		font-family: "Segoe UI";
 }
 #header input{
 	position: relative;
@@ -20,7 +21,6 @@
 }
 #header input:before{
 	content: "\f002";
-	font-family: FontAwesome;
 	font-style: normal;
 	font-weight: normal;
 	text-decoration: inherit;

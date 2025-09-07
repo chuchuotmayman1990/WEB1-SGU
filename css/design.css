@@ -49,15 +49,23 @@ div.product{
 	position:absolute;
 	left:200px;
 }
-.buy{
-	background: red;
-	border-color: red;
+.addToCart{
+	background: #FF9800;
+	border: none;
 	border-radius: 4px;
 	color: white;
 	padding: 10px;
 	margin-bottom: 30px;
 	margin-top: 5px;
-	
+}
+.buy{
+	background: red;
+	border: none;
+	border-radius: 4px;
+	color: white;
+	padding: 10px;
+	margin-bottom: 30px;
+	margin-top: 5px;
 }
 .number{
 	color: black;

@@ -24,6 +24,7 @@
 	border: none;
 	padding: 14.3px;
 	top: -8px;
+	cursor: pointer;
 	
 }
 #header input:before{

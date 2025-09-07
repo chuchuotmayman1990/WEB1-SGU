@@ -15,6 +15,7 @@
 	border: none;
 	padding: 7px;
 	border-radius: 7px;
+	top: -8px;
 }
 #header button{
 	position: relative;
@@ -22,6 +23,7 @@
 	background:#000;
 	border: none;
 	padding: 14.3px;
+	top: -8px;
 	
 }
 #header input:before{

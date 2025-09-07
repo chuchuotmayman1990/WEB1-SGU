@@ -35,7 +35,10 @@ function xuat_sp(temp,x,y)
 		for(var i=vitri;i<temp.length;i++){
 			s += '<div class="product"><a href="index.html?detail=' + temp[i].masp + '" style="text-decoration:none"><img src="' + temp[i].hinh + '"alt="' + temp[i].tengame +'" id="hinhsp"/><div><figcaption style="color: white; ">' + temp[i].tengame + '</figcaption></div>';
 			s += '<span style="color:#27CF2D;"><b>'+temp[i].gia+' VNĐ</b></span>';
-			s += '<div style="position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%); display: flex;"></a><input type="button" onClick="cong('+temp[i].masp+')" value="Mua ngay" class="buy"></div></div>';
+			s += '<div style="position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%); display: flex;"></a>';
+			s += '<input type="button" onClick="" value="Thêm vào giỏ" class="addToCart">';
+			s += '<input type="button" onClick="cong('+temp[i].masp+')" value="Mua ngay" class="buy">';
+			s += '</div></div>';
 			dem++;
 			if(dem==9) break;
 		}
@@ -56,7 +59,10 @@ function xuat_allsp()
 	for(var i=0;i<sp.length;i++){
 		s += '<div class="product"><a href="index.html?detail=' + sp[i].masp + '" style="text-decoration:none"><img src="' + sp[i].hinh + '"alt="' + sp[i].tengame +'" id="hinhsp"/><div><figcaption style="color: white; ">' + sp[i].tengame + '</figcaption></div>';
 		s += '<span style="color:#27CF2D;"><b>'+sp[i].gia+' VNĐ</b></span>';
-		s += '<div style="position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%); display: flex;"></a><input type="button" onClick="cong('+sp[i].masp+')" value="Mua ngay" class="buy"></div></div>';
+		s += '<div style="position: absolute; left: 50%; top: 90%; transform: translate(-50%, -50%); display: flex;"></a>';
+		s += '<input type="button" onClick="" value="Thêm vào giỏ" class="addToCart">';
+		s += '<input type="button" onClick="cong('+sp[i].masp+')" value="Mua ngay" class="buy">';
+		s += '</div></div>';
 		dem++;
 		if(dem==9) break;
 	}
@@ -370,6 +376,7 @@ window.onload = function(){
 	createmenu();
 	layurl();
 }
+
 
 
 

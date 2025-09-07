@@ -3,6 +3,7 @@
 body{
 	background-image: url('../img/Witcher-3-415-2060x1288 - Copy.jpg');
 	background-attachment:fixed;
+	font-family: "Segoe UI";
 }
 #menulist{
 	width: 15%;

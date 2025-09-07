@@ -223,14 +223,14 @@ function AdvancedSearch()
 {
 	var s ='<input type="search" id="searchadv" placeholder=" Tìm kiếm nâng cao..." size="53" style="margin-left: 10px;" />'
 		+'<button id="searchbt" onclick="timkiemnangcao()" style="margin-left: 10px;"><i class="fa fa-search" style="margin-top: -6px;"></i></button>'
-		+'<p style="margin-left: 130px; margin-top: 5px">Thể loại</p>'
+		+'<p style="margin-left: 130px; margin-top: -3px; margin-bottom: 15px; font-size:14px;">Thể loại</p>'
 		+'<select id="Kind" style="width: 190px; margin-left: 10px; margin-top: -12px; background-color:black; color: white; padding: 5px; border-radius: 5px;">'
 			+'<option value="all">Tất cả</option>';
 			for (var i=0; i<m.length; i++) {
 				s += '<option value="'+ m[i].mamenu +'">' + m[i].ten + '</option>';
 			}
 	s += '</select>'
-		+'<p style="margin: 0.25em 0; margin-left: 130px">Giá</p>'
+		+'<p style="margin-left: 130px; margin-bottom:8px; margin-top:7px; font-size:14px;">Mức giá</p>'
 		+'<input id="From" type="text" style="width: 70px; margin-left: 10px;" placeholder="Từ"/> ~ <input id="To" type="text" style="width: 70px" placeholder="Đến"/>'
 		+'<input id="ChagneSearch" type="button" value="Quay lại" onclick="NormalSearch()" style="margin-left: 14px; border-radius: 5px; cursor: pointer;" />';
 	document.getElementById("searchdiv").innerHTML = s;
@@ -376,6 +376,7 @@ window.onload = function(){
 	createmenu();
 	layurl();
 }
+
 
 
 
